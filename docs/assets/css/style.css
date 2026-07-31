@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ENERGY FIELD — Design System
+   ENERGY FIELD / Design System
    Identidade extraída das artes oficiais (pasta "id visual"):
    azul-marinho profundo, azul royal elétrico, laranja solar e branco.
    Tipografia: Segoe UI Variable (local, pasta /fonts).
@@ -10,7 +10,7 @@
    -------------------------------------------------------------------------- */
 /* O arquivo entregue na pasta /fonts é uma instância única da família.
    Declaramos apenas a face regular para que o navegador sintetize os pesos
-   e o itálico — é isso que cria a hierarquia bold/itálico das artes da marca.
+   e o itálico, que é o que cria a hierarquia bold/itálico das artes da marca.
    Se depois forem entregues os arquivos de cada peso (semibold, bold, italic),
    basta acrescentar um @font-face por peso apontando ao arquivo correspondente. */
 @font-face {
@@ -28,7 +28,7 @@ html { font-synthesis: weight style; -webkit-font-synthesis: weight style; }
    -------------------------------------------------------------------------- */
 :root {
   /* --------------------------------------------------------------------
-     Índigo institucional — cor exata do logotipo oficial (#302868),
+     Índigo institucional, cor exata do logotipo oficial (#302868),
      escalonada para fundos, superfícies e textos.
      -------------------------------------------------------------------- */
   --ef-navy-950: #0B0920;
@@ -37,7 +37,7 @@ html { font-synthesis: weight style; -webkit-font-synthesis: weight style; }
   --ef-navy-700: #302868;  /* cor do logotipo Energy Field */
   --ef-navy-600: #3E3585;
 
-  /* Azul elétrico — usado nos destaques das artes da marca */
+  /* Azul elétrico, usado nos destaques das artes da marca */
   --ef-blue-700: #2537B8;
   --ef-blue-600: #2B47DD;
   --ef-blue-500: #3355F7;
@@ -45,7 +45,7 @@ html { font-synthesis: weight style; -webkit-font-synthesis: weight style; }
   --ef-blue-100: #E7EBFF;
   --ef-blue-50:  #F4F5FF;
 
-  /* Laranja solar — cor exata do sol do logotipo (#F09028) */
+  /* Laranja solar, cor exata do sol do logotipo (#F09028) */
   --ef-orange-700: #C96A08;
   --ef-orange-600: #E07E14;
   --ef-orange-500: #F09028;
@@ -74,7 +74,7 @@ html { font-synthesis: weight style; -webkit-font-synthesis: weight style; }
   --sh-orange: 0 14px 34px -12px rgba(224, 126, 20, .55);
   --sh-blue: 0 14px 34px -12px rgba(43, 71, 221, .5);
 
-  /* Formas — canto assimétrico assinatura da marca */
+  /* Formas: canto assimétrico assinatura da marca */
   --r-sm: 12px;
   --r-md: 18px;
   --r-lg: 26px;
@@ -137,7 +137,7 @@ h1, h2, h3, h4, .h1, .h2, .h3 {
 em, .it { font-style: italic; }
 strong, b { font-weight: 700; }
 
-/* Palavra em itálico + peso — ritmo editorial das artes */
+/* Palavra em itálico + peso, ritmo editorial das artes */
 .accent-i { font-style: italic; font-weight: 700; }
 
 /* Pílula de destaque (assinatura visual da marca) */
@@ -290,7 +290,7 @@ strong, b { font-weight: 700; }
   display: flex; align-items: center; gap: 22px;
 }
 
-/* Logotipo oficial — as duas versões ficam sobrepostas e alternam
+/* Logotipo oficial: as duas versões ficam sobrepostas e alternam
    conforme o fundo (escuro no topo da página, claro com o header fixo). */
 .logo { display: block; flex: none; position: relative; line-height: 0; }
 .logo img {
@@ -338,7 +338,7 @@ body.nav-open .logo__alt { opacity: 1; }
 }
 .header.is-stuck .burger { background: var(--ef-blue-50); box-shadow: inset 0 0 0 1.5px var(--ef-line); }
 
-/* Com o menu aberto o fundo fica claro — o logo e o botão acompanham */
+/* Com o menu aberto o fundo fica claro, o logo e o botão acompanham */
 body.nav-open .header::before { opacity: 0; }
 body.nav-open .burger { background: var(--ef-blue-50); box-shadow: inset 0 0 0 1.5px var(--ef-line); }
 .burger__box { position: relative; width: 20px; height: 14px; }

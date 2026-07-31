@@ -1,7 +1,7 @@
-# Energy Field — site institucional
+# Energy Field: site institucional
 
 Site estático (HTML + CSS + JavaScript, sem build) pronto para publicação.
-Basta subir o conteúdo desta pasta `docs/` para a hospedagem — ou ativar o GitHub Pages apontando para ela.
+Basta subir o conteúdo desta pasta `docs/` para a hospedagem, ou ativar o GitHub Pages apontando para ela.
 
 ---
 
@@ -9,7 +9,7 @@ Basta subir o conteúdo desta pasta `docs/` para a hospedagem — ou ativar o Gi
 
 Tudo o que depende de dado real está reunido em dois lugares.
 
-### a) `assets/js/main.js` — bloco `EF_CONFIG` (primeiras linhas do arquivo)
+### a) `assets/js/main.js`, bloco `EF_CONFIG` (primeiras linhas do arquivo)
 
 | Constante | O que fazer |
 |---|---|
@@ -24,13 +24,13 @@ Tudo o que depende de dado real está reunido em dois lugares.
 Procure no `index.html` e `sobre.html` pelo comentário `>>> ATUALIZAR DEPOIS <<<`:
 
 - **Números da empresa** (seção "Resultados que geram confiança"): estão como `+X`.
-  Para ativar a animação de contagem, troque `data-count="X"` pelo número real —
-  exemplo: `<span data-count="480">X</span>`. Enquanto for `X`, o contador não anima.
+  Para ativar a animação de contagem, troque `data-count="X"` pelo número real.
+  Exemplo: `<span data-count="480">X</span>`. Enquanto for `X`, o contador não anima.
 - **Prova social** (seção "Quem já escolheu a Energy Field recomenda"): três cards com
   `[Nome do cliente]` e `[Espaço reservado para a avaliação...]`. Substitua pelas avaliações
   reais do Google. Nenhum depoimento foi inventado.
 - **Redes sociais** no rodapé: os links de Instagram e Facebook estão como `href="#"`.
-- **E-mail**: `contato@energyfield.com.br` aparece no rodapé e nos menus — ajuste se for outro.
+- **E-mail**: `contato@energyfield.com.br` aparece no rodapé e nos menus. Ajuste se for outro.
 - **Política de Privacidade**: o texto é um modelo base. Revise com o jurídico e acrescente
   razão social, CNPJ, endereço e contato do encarregado de dados.
 - **Domínio**: as tags `canonical` e `og:url` apontam para `https://www.energyfield.com.br/`.
@@ -125,10 +125,10 @@ ficam sobrepostas no header e alternam sozinhas conforme o fundo:
 |---|---|
 | `logotipo-branco.png` | header no topo da página (fundo escuro), rodapé |
 | `logotipo-azul.png` | header fixo ao rolar (fundo claro), menu mobile aberto |
-| `favicon.png` / `apple-touch-icon.png` | ícone do navegador — símbolo sobre o índigo da marca |
+| `favicon.png` / `apple-touch-icon.png` | ícone do navegador, símbolo sobre o índigo da marca |
 | `simbolo-azul.png` / `simbolo-branco.png` | símbolo isolado, gerado a partir do logotipo, para usos futuros |
 
-O favicon e os símbolos foram recortados dos próprios arquivos oficiais — se o logotipo for
+O favicon e os símbolos foram recortados dos próprios arquivos oficiais. Se o logotipo for
 atualizado, basta substituir os dois PNGs e regerar os ícones a partir deles.
 
 ---
@@ -139,7 +139,7 @@ As imagens em `assets/img/` são provisórias (bancos gratuitos), exceto
 `marca-familia-casa.jpg` e `marca-instalacao-familia.jpg`, que foram recortadas das artes
 oficiais da marca.
 
-Para substituir, basta **manter o mesmo nome de arquivo** — nenhum HTML precisa ser alterado.
+Para substituir, basta **manter o mesmo nome de arquivo**. Nenhum HTML precisa ser alterado.
 Recomendação: JPG, largura de 1400px a 1600px, qualidade ~78, com o texto `alt` atualizado
 para descrever a foto real.
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ENERGY FIELD — main.js
+   ENERGY FIELD / main.js
    ==========================================================================
    >>> CONFIGURAÇÃO RÁPIDA <<<
    Edite o bloco EF_CONFIG abaixo para colocar o site no ar.
@@ -7,20 +7,20 @@
 
 const EF_CONFIG = {
   /* ---------------------------------------------------------------------
-     1) WEBHOOK — cole aqui a URL de integração (Make, n8n, Zapier, CRM...).
+     1) WEBHOOK: cole aqui a URL de integração (Make, n8n, Zapier, CRM...).
         Enquanto estiver com o valor padrão, o formulário funciona em modo
         demonstração: valida, mostra sucesso e registra os dados no console.
      --------------------------------------------------------------------- */
   WEBHOOK_URL: 'INSERIR_WEBHOOK_AQUI',
 
   /* ---------------------------------------------------------------------
-     2) WHATSAPP — número com DDI + DDD, apenas dígitos. Ex.: 5544999999999
+     2) WHATSAPP: número com DDI + DDD, apenas dígitos. Ex.: 5544999999999
      --------------------------------------------------------------------- */
   WHATSAPP_NUMERO: '5517997928023',
   WHATSAPP_MENSAGEM: 'Olá! Vim pelo site da Energy Field e quero simular minha economia com energia solar.',
 
   /* ---------------------------------------------------------------------
-     3) SIMULADOR — percentuais usados na estimativa visual.
+     3) SIMULADOR: percentuais usados na estimativa visual.
         Comunicação sempre em "pode chegar a até", nunca promessa absoluta.
      --------------------------------------------------------------------- */
   ECONOMIA_MAX: 95,   // % máximo comunicado
@@ -45,14 +45,14 @@ const EF_WHATSAPP_LINK =
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
   /* ======================================================================
-     WHATSAPP — aplica o link configurado em todos os pontos do site
+     WHATSAPP: aplica o link configurado em todos os pontos do site
      ====================================================================== */
   function initWhatsappLinks() {
     $$('[data-wa]').forEach(el => { el.href = EF_WHATSAPP_LINK; });
   }
 
   /* ======================================================================
-     HEADER — estado "grudado" ao rolar
+     HEADER: estado "grudado" ao rolar
      ====================================================================== */
   function initHeader() {
     const header = $('.header');
@@ -138,7 +138,7 @@ const EF_WHATSAPP_LINK =
   }
 
   /* ======================================================================
-     FAQ — accordion
+     FAQ: accordion
      ====================================================================== */
   function initFaq() {
     const items = $$('.faq__item');
@@ -214,7 +214,7 @@ const EF_WHATSAPP_LINK =
   }
 
   /* ======================================================================
-     GALERIA DE PROJETOS — filtros
+     GALERIA DE PROJETOS: filtros
      ====================================================================== */
   function initGallery() {
     const filters = $$('[data-filter]');
@@ -293,7 +293,7 @@ const EF_WHATSAPP_LINK =
           const max = conta * (pct / 100);
           legenda.innerHTML =
             'Com uma conta de <b>' + brl(conta) + '</b>, a economia estimada pode ficar entre <b>' +
-            brl(min) + '</b> e <b>' + brl(max) + '</b> por mês. Estimativa visual — o valor exato vem na simulação da nossa equipe.';
+            brl(min) + '</b> e <b>' + brl(max) + '</b> por mês. É uma estimativa visual, o valor exato vem na simulação da nossa equipe.';
         } else {
           legenda.innerHTML =
             'Informe o valor médio da sua conta ao lado para ver uma estimativa. A economia pode variar conforme o perfil de consumo, o local de instalação e as condições técnicas do projeto.';
@@ -336,7 +336,7 @@ const EF_WHATSAPP_LINK =
         const salvo = sessionStorage.getItem('ef_utms');
         if (salvo) Object.assign(store, JSON.parse(salvo));
       }
-    } catch (e) { /* sessionStorage indisponível — segue sem persistir */ }
+    } catch (e) { /* sessionStorage indisponível, segue sem persistir */ }
 
     UTM_KEYS.forEach(k => { if (!store[k]) store[k] = ''; });
     return store;
@@ -482,7 +482,7 @@ const EF_WHATSAPP_LINK =
             });
             if (!resp.ok) throw new Error('HTTP ' + resp.status);
           } else {
-            // Modo demonstração — webhook ainda não configurado
+            // Modo demonstração, webhook ainda não configurado
             console.info('[Energy Field] WEBHOOK_URL não configurado. Payload que seria enviado:', payload);
             await new Promise(r => setTimeout(r, 700));
           }
