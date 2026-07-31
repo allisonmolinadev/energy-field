@@ -858,12 +858,14 @@ textarea.control { resize: vertical; min-height: 96px; line-height: 1.6; }
   grid-column: span 2;
 }
 @media (min-width: 880px) {
-  .shot { grid-column: span 4; }
-  .shot--wide { grid-column: span 8; aspect-ratio: 16/9; }
-  .shot--tall { grid-column: span 4; aspect-ratio: 3/4; }
-  .shot--half { grid-column: span 6; aspect-ratio: 16/10; }
-  /* Proporção que fecha a altura do bloco largo ao lado */
-  .shot--pair { grid-column: span 4; aspect-ratio: 8/9; }
+  /* Altura vem das linhas do grid, não do aspect-ratio: assim os blocos de
+     larguras diferentes fecham a mesma fileira, sem degraus. */
+  .gallery { grid-auto-rows: 148px; }
+  .shot { grid-column: span 4; grid-row: span 2; aspect-ratio: auto; }
+  .shot--wide { grid-column: span 8; grid-row: span 3; }
+  .shot--pair { grid-column: span 4; grid-row: span 3; }
+  .shot--half { grid-column: span 6; grid-row: span 2; }
+  .shot--tall { grid-column: span 4; grid-row: span 3; }
 }
 .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.3,1); }
 .shot::after {
@@ -1001,6 +1003,29 @@ textarea.control { resize: vertical; min-height: 96px; line-height: 1.6; }
 .section--light .form-legal a, .section--soft .form-legal a { color: var(--on-light-2); }
 .section--light .values span, .section--soft .values span { color: var(--on-light-2); }
 .section--light .note-legal, .section--soft .note-legal { color: var(--on-light-3); }
+
+/* Bento sobre papel */
+.section--light .tile__big small, .section--soft .tile__big small { color: var(--on-light-3); }
+.section--light .tile--mesh::before, .section--soft .tile--mesh::before {
+  background: repeating-linear-gradient(0deg, rgba(28,23,69,.05) 0 1px, transparent 1px 26px),
+              repeating-linear-gradient(90deg, rgba(28,23,69,.05) 0 1px, transparent 1px 26px);
+}
+/* Blocos com foto mantêm o texto branco: a borda é que precisa acompanhar o papel */
+.section--light .aud, .section--soft .aud,
+.section--light .shot, .section--soft .shot,
+.section--light .tile--photo, .section--soft .tile--photo { border-color: var(--paper-line); }
+.section--light .tile--photo h3, .section--soft .tile--photo h3,
+.section--light .aud h3, .section--soft .aud h3 { color: #fff; }
+.section--light .tile--photo p, .section--soft .tile--photo p,
+.section--light .aud p, .section--soft .aud p { color: rgba(255,255,255,.82); }
+.section--light .aud .link-arrow, .section--soft .aud .link-arrow { color: #fff; }
+.section--light .aud .link-arrow:hover, .section--soft .aud .link-arrow:hover { color: var(--sun-400); }
+.section--light .shot__info span, .section--soft .shot__info span { color: rgba(255,255,255,.74); }
+
+/* Luz solar suave também nas seções de papel, quando fizer sentido */
+.section--light.glow::before, .section--soft.glow::before {
+  background: radial-gradient(110% 80% at 84% 0%, rgba(240,144,40,.1) 0%, transparent 56%);
+}
 
 /* --------------------------------------------------------------------------
    19. FAQ
