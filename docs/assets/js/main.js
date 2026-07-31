@@ -16,7 +16,7 @@ const EF_CONFIG = {
   /* ---------------------------------------------------------------------
      2) WHATSAPP — número com DDI + DDD, apenas dígitos. Ex.: 5544999999999
      --------------------------------------------------------------------- */
-  WHATSAPP_NUMERO: '5500000000000',
+  WHATSAPP_NUMERO: '5517997928023',
   WHATSAPP_MENSAGEM: 'Olá! Vim pelo site da Energy Field e quero simular minha economia com energia solar.',
 
   /* ---------------------------------------------------------------------
