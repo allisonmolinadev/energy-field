@@ -113,6 +113,39 @@ const EF_WHATSAPP_LINK =
   }
 
   /* ======================================================================
+     PARALLAX DISCRETO NAS FOTOS DE DESTAQUE
+     Deslocamento pequeno, só enquanto o elemento está na tela.
+     ====================================================================== */
+  function initParallax() {
+    const els = $$('[data-parallax]');
+    if (!els.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth < 900) return;
+
+    let ticking = false;
+    const update = () => {
+      const vh = window.innerHeight;
+      els.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        const fator = parseFloat(el.dataset.parallax) || 0.04;
+        // -1 no topo da tela, +1 embaixo
+        const progresso = ((r.top + r.height / 2) - vh / 2) / (vh / 2);
+        el.style.transform = 'translate3d(0,' + (progresso * fator * 100).toFixed(2) + 'px,0) scale(1.06)';
+      });
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+  }
+
+  /* ======================================================================
      NAVEGAÇÃO ATIVA POR SEÇÃO
      ====================================================================== */
   function initScrollSpy() {
@@ -550,6 +583,7 @@ const EF_WHATSAPP_LINK =
     initHeader();
     initMobileNav();
     initReveal();
+    initParallax();
     initScrollSpy();
     initFaq();
     initCounters();

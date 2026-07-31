@@ -89,7 +89,7 @@ docs/
 ├── assets/
 │   ├── css/style.css              Design system completo
 │   ├── js/main.js                 Interações + formulário + UTMs
-│   └── img/                       Fotos, logo SVG e favicon
+│   └── img/                       Fotos, logotipos e ícones
 ├── fonts/                         Segoe UI Variable (@font-face local)
 └── id visual/                     Artes de referência da marca
 ```
@@ -98,20 +98,28 @@ docs/
 
 ## 4. Identidade visual aplicada
 
-Cores amostradas **pixel a pixel do logotipo oficial** (`logotipo-azul.png`), complementadas
-pelo azul elétrico das artes da pasta `id visual/`:
+Cores amostradas **pixel a pixel do logotipo oficial** (`logotipo-azul.png`):
 
 | Uso | Cor | Origem |
 |---|---|---|
 | Índigo institucional | `#302868` | cor exata do logotipo |
 | Laranja solar (CTAs e realces) | `#F09028` | cor exata do sol do logotipo |
-| Fundos profundos | `#151140` / `#0B0920` | escala derivada do índigo |
-| Azul elétrico (destaques) | `#3355F7` / `#2B47DD` | artes de redes sociais |
-| Âmbar de apoio | `#FFC46A` | derivado do laranja |
+| Base escura do site | `#0C0A20` / `#120E2E` / `#191340` | escala derivada do índigo |
+| Papel (seções de respiro) | `#F7F5F1` | off-white quente, nunca branco puro |
+| Âmbar do gradiente | `#FFD08A` | ponto claro do gradiente solar |
 
-Elementos de linguagem reaproveitados das peças: blocos de canto assimétrico
-(`34px 34px 34px 6px`), pílulas de destaque em azul elétrico e laranja sobre as
-palavras-chave, e a malha do globo da marca como marca d'água no topo.
+A direção visual é de **produto digital**, não de site institucional:
+
+- **Base escura** predominante, com duas seções de papel para quebrar o ritmo
+- **Superfícies de vidro** (`.pane`, `.tile`, `.step`): branco a 3,5% com borda a 8% e blur
+- **Malha fotovoltaica** como textura de fundo (classe `.meshed`), referência ao módulo solar
+- **Luz solar direcional** em gradiente radial (classe `.glow`), usada em 4 seções apenas
+- **Gradiente solar aplicado ao texto** nos números de destaque (95%, 120, +X)
+- **Bento grid** nos benefícios: blocos de larguras diferentes, um com número grande,
+  dois com foto ao fundo
+- **Composição assimétrica** em "Para quem é" (colunas 5 / 7 / 12)
+
+Componentes com variação para fundo claro estão na seção 18b do `style.css`.
 
 **Tipografia:** Segoe UI Variable carregada localmente por `@font-face`, sem Google Fonts.
 O arquivo entregue é uma instância única da família, então os pesos e o itálico são
@@ -135,9 +143,8 @@ atualizado, basta substituir os dois PNGs e regerar os ícones a partir deles.
 
 ## 5. Trocar as fotos por fotos reais
 
-As imagens em `assets/img/` são provisórias (bancos gratuitos), exceto
-`marca-familia-casa.jpg` e `marca-instalacao-familia.jpg`, que foram recortadas das artes
-oficiais da marca.
+As fotos em `assets/img/` são provisórias, de banco gratuito, escolhidas com o mesmo
+critério: instalação real, luz natural, sem pose. Os logotipos e ícones são os oficiais.
 
 Para substituir, basta **manter o mesmo nome de arquivo**. Nenhum HTML precisa ser alterado.
 Recomendação: JPG, largura de 1400px a 1600px, qualidade ~78, com o texto `alt` atualizado
