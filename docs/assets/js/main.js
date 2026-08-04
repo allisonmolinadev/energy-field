@@ -251,7 +251,7 @@ const EF_WHATSAPP_LINK =
      ====================================================================== */
   function initGallery() {
     const filters = $$('[data-filter]');
-    const shots = $$('.shot[data-cat]');
+    const shots = $$('.shot[data-cat], .proj[data-cat]');
     if (!filters.length || !shots.length) return;
 
     filters.forEach(btn => {

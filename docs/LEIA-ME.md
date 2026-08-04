@@ -30,7 +30,7 @@ Procure no `index.html` e `sobre.html` pelo comentário `>>> ATUALIZAR DEPOIS <<
   `[Nome do cliente]` e `[Espaço reservado para a avaliação...]`. Substitua pelas avaliações
   reais do Google. Nenhum depoimento foi inventado.
 - **Redes sociais** no rodapé: os links de Instagram e Facebook estão como `href="#"`.
-- **E-mail**: `contato@energyfield.com.br` aparece no rodapé e nos menus. Ajuste se for outro.
+- **E-mail**: `atendimento@energyfield.com.br` aparece no rodapé e nos menus. Ajuste se for outro.
 - **Política de Privacidade**: o texto é um modelo base. Revise com o jurídico e acrescente
   razão social, CNPJ, endereço e contato do encarregado de dados.
 - **Domínio**: as tags `canonical` e `og:url` apontam para `https://www.energyfield.com.br/`.
@@ -152,12 +152,48 @@ para descrever a foto real.
 
 ---
 
-## 6. Seção rural
+## 6. Projetos reais
+
+Os 27 sistemas exibidos em `projetos.html` (e os 8 em destaque na home) vieram da página
+oficial `energyfield.com.br/nossos-projetos`. Cada card traz os dados publicados pela própria
+empresa: potência do sistema, quantidade e potência das placas, geração mensal e economia anual.
+
+As fotos ficam em `assets/img/projetos/`, numeradas na mesma ordem da página oficial.
+
+**Filtros:** as faixas (Até 5 kWp / 5 a 10 kWp / Acima de 10 kWp) são calculadas da potência
+real de cada sistema, não atribuídas manualmente.
+
+**Etiqueta Residencial / Comercial:** marquei como comercial apenas onde o nome do local deixa
+claro (Clínica Médica e Supermercado Sales). O restante ficou como residencial, o que é coerente
+com o porte dos sistemas. Se algum projeto for de outro tipo, basta trocar o texto dentro de
+`<span class="proj__tag">` no card correspondente.
+
+**Para acrescentar um projeto:** copie um bloco `<article class="proj">`, troque a foto, o nome,
+a cidade e os três dados da ficha. O `data-cat` deve ser `ate5`, `ate10` ou `acima10` conforme
+a potência do sistema.
+
+### Números que dá para preencher
+
+A partir do que está publicado na página oficial:
+
+| Item | Valor |
+|---|---|
+| Projetos publicados | 27 |
+| Placas somadas | 308 |
+| Potência somada | 173,53 kWp |
+
+Deixei os `+X` da seção "Resultados que geram confiança" como estão, porque esses números
+refletem só os projetos que a empresa escolheu publicar. O total real da Energy Field
+provavelmente é maior, e usar esses valores passaria uma imagem menor do que a realidade.
+
+---
+
+## 7. Seção rural
 
 Se a atuação rural deixar de ser prioridade, remova:
 
 - em `index.html`: o `<article class="aud">` com a tag "Rural / Produtor" na seção `#para-quem`;
 - nos formulários: a opção `Rural / Produtor` (radio no simulador e `<option>` no formulário de contato);
-- em `projetos.html`: o botão `data-filter="rural"` e os cards com `data-cat="rural"`.
+- em `projetos.html`: os projetos rurais, se houver, ficam identificados pela etiqueta do card.
 
 Nada mais depende dessa seção.
