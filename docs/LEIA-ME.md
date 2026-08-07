@@ -98,28 +98,37 @@ docs/
 
 ## 4. Identidade visual aplicada
 
-Cores amostradas **pixel a pixel do logotipo oficial** (`logotipo-azul.png`):
+**Cores oficiais da marca**, definidas pela Energy Field:
 
-| Uso | Cor | Origem |
+| Uso | Cor | Token |
 |---|---|---|
-| Índigo institucional | `#302868` | cor exata do logotipo |
-| Laranja solar (CTAs e realces) | `#F09028` | cor exata do sol do logotipo |
-| Base escura do site | `#0C0A20` / `#120E2E` / `#191340` | escala derivada do índigo |
-| Papel (seções de respiro) | `#F7F5F1` | off-white quente, nunca branco puro |
-| Âmbar do gradiente | `#FFD08A` | ponto claro do gradiente solar |
+| Azul institucional | `#2a258b` | `--brand-blue`, `--bg` |
+| Laranja | `#df9635` | `--brand-sun`, `--sun-500` |
+| Azul recuado (card do simulador) | `#241f79` | `--bg-2` |
+| Azul de base (rodapé, painéis) | `#1d1963` | `--bg-3` |
+| Papel (seções claras) | `#F7F5F1` | `--paper` |
+
+Os dois primeiros são as cores da marca; os demais são a mesma matiz em graus
+diferentes, para criar hierarquia entre superfícies. **O azul é sempre chapado, sem
+degradê** — não há luz radial nem gradiente de fundo em nenhuma seção.
+
+Os únicos gradientes que restaram têm função e não são decorativos: os véus sobre
+fotografia, que garantem a leitura do texto branco por cima da imagem.
 
 A direção visual é de **produto digital**, não de site institucional:
 
-- **Base escura** predominante, com duas seções de papel para quebrar o ritmo
+- **Azul da marca** nas seções escuras, alternando com papel quente nas claras
 - **Superfícies de vidro** (`.pane`, `.tile`, `.step`): branco a 3,5% com borda a 8% e blur
 - **Malha fotovoltaica** como textura de fundo (classe `.meshed`), referência ao módulo solar
-- **Luz solar direcional** em gradiente radial (classe `.glow`), usada em 4 seções apenas
-- **Gradiente solar aplicado ao texto** nos números de destaque (95%, 120, +X)
+- **Laranja da marca** nos números de destaque (95%, 120, +X) e em toda ação
 - **Bento grid** nos benefícios: blocos de larguras diferentes, um com número grande,
   dois com foto ao fundo
 - **Composição assimétrica** em "Para quem é" (colunas 5 / 7 / 12)
 
 Componentes com variação para fundo claro estão na seção 18b do `style.css`.
+
+Para trocar as cores da marca, basta editar `--brand-blue` e `--brand-sun` no topo do
+`style.css`: todo o restante da paleta é derivado desses dois tokens.
 
 **Tipografia:** Segoe UI Variable carregada localmente por `@font-face`, sem Google Fonts.
 O arquivo entregue é uma instância única da família, então os pesos e o itálico são
@@ -133,7 +142,7 @@ ficam sobrepostas no header e alternam sozinhas conforme o fundo:
 |---|---|
 | `logotipo-branco.png` | header no topo da página (fundo escuro), rodapé |
 | `logotipo-azul.png` | header fixo ao rolar (fundo claro), menu mobile aberto |
-| `favicon.png` / `apple-touch-icon.png` | ícone do navegador, símbolo sobre o índigo da marca |
+| `favicon.png` / `apple-touch-icon.png` | ícone do navegador, símbolo sobre o azul da marca |
 | `simbolo-azul.png` / `simbolo-branco.png` | símbolo isolado, gerado a partir do logotipo, para usos futuros |
 
 O favicon e os símbolos foram recortados dos próprios arquivos oficiais. Se o logotipo for
