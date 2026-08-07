@@ -117,7 +117,10 @@ fotografia, que garantem a leitura do texto branco por cima da imagem.
 
 A direção visual é de **produto digital**, não de site institucional:
 
-- **Azul da marca** nas seções escuras, alternando com papel quente nas claras
+- **Hero em banner de imagem cheia**: a fotografia ocupa toda a primeira dobra, com véu
+  horizontal que escurece só o lado do texto (`hero-banner.jpg`, versão leve para telas
+  pequenas em `hero-banner-sm.jpg`)
+- **Azul da marca** nas demais seções escuras, alternando com papel quente nas claras
 - **Superfícies de vidro** (`.pane`, `.tile`, `.step`): branco a 3,5% com borda a 8% e blur
 - **Malha fotovoltaica** como textura de fundo (classe `.meshed`), referência ao módulo solar
 - **Laranja da marca** nos números de destaque (95%, 120, +X) e em toda ação
