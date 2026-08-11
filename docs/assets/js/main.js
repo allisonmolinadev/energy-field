@@ -253,53 +253,87 @@ const EF_WHATSAPP_LINK =
      ====================================================================== */
   function initFitas() {
     const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const VELOCIDADE = 26; // px por segundo do avanço contínuo
 
     $$('[data-fita]').forEach((caixa) => {
       const pista = $('.fita__pista', caixa);
-      if (!pista || pista.dataset.pronta) return;
+      if (!pista) return;
 
-      // Uma cópia de cada item fecha o laço. As cópias não são anunciadas.
-      [...pista.children].forEach((item) => {
-        const copia = item.cloneNode(true);
-        copia.setAttribute('aria-hidden', 'true');
-        copia.querySelectorAll('img').forEach((el) => { el.alt = ''; });
-        pista.appendChild(copia);
-      });
+      // Guarda os cartões originais: é a partir deles que a pista é remontada
+      // quando um filtro muda o conjunto exibido.
+      const originais = [...pista.children].map((n) => n.cloneNode(true));
 
-      /* Largura em px, não max-content: assim a emenda do laço não muda de
-         lugar caso algum item cresça no hover. */
-      let metade = 0;
-      const medir = () => {
+      let ciclo = 0;              // largura de um conjunto completo
+      let pos = 0, resta = 0;
+      let pausado = false, arrastando = false, ultimoX = 0, andou = 0, anterior = null;
+
+      /* Repete o conjunto até a pista cobrir mais que o dobro da tela. Com
+         poucos cartões, uma cópia só deixaria buraco antes da emenda. */
+      const montar = (itens) => {
+        pista.innerHTML = '';
         pista.style.width = '';
-        const total = pista.scrollWidth;
-        pista.style.width = total + 'px';
-        metade = total / 2;
+        itens.forEach((n) => pista.appendChild(n.cloneNode(true)));
+        ciclo = pista.scrollWidth;
+        if (!ciclo) return;
+
+        const alvo = caixa.clientWidth * 2 + ciclo;
+        let voltas = 1;
+        while (pista.scrollWidth < alvo && voltas < 14) {
+          itens.forEach((n) => {
+            const copia = n.cloneNode(true);
+            copia.setAttribute('aria-hidden', 'true');
+            copia.querySelectorAll('img').forEach((el) => { el.alt = ''; });
+            pista.appendChild(copia);
+          });
+          voltas++;
+        }
+        pista.style.width = pista.scrollWidth + 'px';
+        pos = 0; resta = 0;
       };
-      medir();
-      let t;
-      window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(medir, 180); });
 
-      let pos = 0, arrastando = false, ultimoX = 0, andou = 0;
-      /* Guarda a distância que falta do salto pedido por uma seta, e não uma
-         posição de destino: assim o deslize convive com a normalização do
-         laço, que reescreve `pos` a cada volta. */
-      let resta = 0;
+      montar(originais);
 
-      const passo = () => {
+      // usado pelos filtros: refaz a pista só com os cartões da categoria
+      caixa.repovoar = (cat) => {
+        const vis = (!cat || cat === 'todos')
+          ? originais
+          : originais.filter((n) => n.dataset.cat === cat);
+        atual = vis.length ? vis : originais;
+        montar(atual);
+      };
+
+      // ao redimensionar, o número de repetições muda: remonta com o conjunto atual
+      let t, atual = originais;
+      window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => montar(atual), 200); });
+
+      const passo = (agora) => {
+        if (anterior === null) anterior = agora;
+        const dt = Math.min((agora - anterior) / 1000, 0.05); // trava saltos ao voltar de outra aba
+        anterior = agora;
+
+        // avanço contínuo: só para no hover, no arrasto ou com movimento reduzido
+        if (!pausado && !arrastando && !reduzido) pos -= VELOCIDADE * dt;
+
         if (resta !== 0 && !arrastando) {
-          const avanco = resta * 0.14;
+          const avanco = resta * Math.min(1, dt * 9);
           pos += avanco;
           resta -= avanco;
           if (Math.abs(resta) < 0.5) { pos += resta; resta = 0; }
         }
-        if (metade > 0) {
-          while (pos <= -metade) pos += metade;
-          while (pos > 0) pos -= metade;
+        if (ciclo > 0) {
+          // mantém a posição dentro de um conjunto: o laço fica infinito nos dois sentidos
+          while (pos <= -ciclo) pos += ciclo;
+          while (pos > 0) pos -= ciclo;
         }
         pista.style.transform = 'translate3d(' + pos.toFixed(2) + 'px,0,0)';
         requestAnimationFrame(passo);
       };
       requestAnimationFrame(passo);
+
+      caixa.addEventListener('pointerenter', () => { pausado = true; });
+      caixa.addEventListener('pointerleave', () => { pausado = false; });
+      caixa.addEventListener('focusin', () => { pausado = true; });
+      caixa.addEventListener('focusout', () => { pausado = false; });
 
       caixa.addEventListener('pointerdown', (e) => {
         if (e.button !== 0 && e.pointerType === 'mouse') return;
@@ -337,7 +371,6 @@ const EF_WHATSAPP_LINK =
         resta -= dir * largura;
       };
 
-      pista.dataset.pronta = '1';
       caixa.classList.add('is-loop');
     });
 
@@ -354,14 +387,24 @@ const EF_WHATSAPP_LINK =
      ====================================================================== */
   function initGallery() {
     const filters = $$('[data-filter]');
+    if (!filters.length) return;
+
+    // Quando os cartões estão numa fita, filtrar não é esconder: a pista é
+    // remontada só com a categoria escolhida, senão o laço ficaria com buracos.
+    const fita = $('[data-fita]');
     const shots = $$('.shot[data-cat], .proj[data-cat]');
-    if (!filters.length || !shots.length) return;
+    if (!fita && !shots.length) return;
 
     filters.forEach(btn => {
       btn.addEventListener('click', () => {
         filters.forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
         const cat = btn.dataset.filter;
+
+        if (fita && typeof fita.repovoar === 'function') {
+          fita.repovoar(cat);
+          return;
+        }
         shots.forEach(shot => {
           const show = cat === 'todos' || shot.dataset.cat === cat;
           shot.classList.toggle('is-hidden', !show);

@@ -180,11 +180,15 @@ claro (Clínica Médica e Supermercado Sales). O restante ficou como residencial
 com o porte dos sistemas. Se algum projeto for de outro tipo, basta trocar o texto dentro de
 `<span class="proj__tag">` no card correspondente.
 
-**Na home** os projetos ficam num carrossel (classe `.fita`): pista com laço
-infinito, arrasto pelo ponteiro e setas que avançam um cartão. O JS duplica os
-cartões para fechar o laço, então a home não tem filtros — esconder itens
-quebraria a emenda. A página de projetos mantém a grade completa com os filtros,
-que é onde filtrar faz sentido.
+Os projetos aparecem em carrossel nas duas páginas (classe `.fita`): pista com
+laço infinito que anda sozinha, arrasto pelo ponteiro e setas que avançam um
+cartão. O movimento pausa quando o ponteiro entra na fita e respeita
+`prefers-reduced-motion`.
+
+O conjunto de cartões é repetido quantas vezes for preciso para cobrir o dobro da
+largura da tela, então o laço fecha sem buraco mesmo com poucos projetos. Ao
+filtrar em `projetos.html`, a pista é remontada só com a categoria escolhida, em
+vez de esconder cartões, o que manteria o laço com falhas.
 
 **Para acrescentar um projeto:** copie um bloco `<article class="proj">`, troque a foto, o nome,
 a cidade e os três dados da ficha. O `data-cat` deve ser `ate5`, `ate10` ou `acima10` conforme
