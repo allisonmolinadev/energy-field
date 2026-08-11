@@ -602,7 +602,7 @@
      ===================================================================== -->
 <section class="section section--light" id="projetos">
   <div class="wrap">
-    <div class="sec-head sec-head--row" data-anim>
+    <div class="sec-head" data-anim>
       <div>
         <p class="eyebrow">Projetos</p>
         <h2 class="h1">Projetos instalados <span class="accent-i">pela Energy Field</span></h2>
@@ -612,20 +612,13 @@
           nossa equipe em São José do Rio Preto e região.
         </p>
       </div>
-      <a class="link-arrow" href="projetos.html">
-        Ver todos os projetos
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
     </div>
 
-    <div class="filters" data-anim>
-      <button class="filter is-active" type="button" data-filter="todos">Todos</button>
-      <button class="filter" type="button" data-filter="ate5">Até 5 kWp</button>
-      <button class="filter" type="button" data-filter="ate10">5 a 10 kWp</button>
-      <button class="filter" type="button" data-filter="acima10">Acima de 10 kWp</button>
-    </div>
 
-    <div class="projs">
+  </div>
+
+  <div class="fita" id="fita-projetos" data-fita="manual" data-anim>
+    <div class="fita__pista">
 
       <article class="proj" data-cat="acima10" data-anim data-delay=".00">
         <div class="proj__media">
@@ -770,7 +763,31 @@
           </dl>
         </div>
       </article>
+    </div>
+  </div>
 
+  <div class="wrap">
+    <div class="fita-controle" data-anim>
+      <div class="fita-setas">
+        <button class="fita-seta" type="button" data-fita-nav="prev" data-alvo="fita-projetos"
+                aria-controls="fita-projetos" aria-label="Ver projeto anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.4"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="fita-seta" type="button" data-fita-nav="next" data-alvo="fita-projetos"
+                aria-controls="fita-projetos" aria-label="Ver próximo projeto">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.4"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <a class="link-arrow" href="projetos.html">
+        Ver todos os projetos
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>

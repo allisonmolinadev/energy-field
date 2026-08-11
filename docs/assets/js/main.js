@@ -247,6 +247,109 @@ const EF_WHATSAPP_LINK =
   }
 
   /* ======================================================================
+     FITA: carrossel horizontal com laço infinito, arrasto e setas
+     A posição é controlada aqui, e não por animação CSS, porque as setas e
+     o arrasto precisam dividir o mesmo valor.
+     ====================================================================== */
+  function initFitas() {
+    const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    $$('[data-fita]').forEach((caixa) => {
+      const pista = $('.fita__pista', caixa);
+      if (!pista || pista.dataset.pronta) return;
+
+      // Uma cópia de cada item fecha o laço. As cópias não são anunciadas.
+      [...pista.children].forEach((item) => {
+        const copia = item.cloneNode(true);
+        copia.setAttribute('aria-hidden', 'true');
+        copia.querySelectorAll('img').forEach((el) => { el.alt = ''; });
+        pista.appendChild(copia);
+      });
+
+      /* Largura em px, não max-content: assim a emenda do laço não muda de
+         lugar caso algum item cresça no hover. */
+      let metade = 0;
+      const medir = () => {
+        pista.style.width = '';
+        const total = pista.scrollWidth;
+        pista.style.width = total + 'px';
+        metade = total / 2;
+      };
+      medir();
+      let t;
+      window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(medir, 180); });
+
+      let pos = 0, arrastando = false, ultimoX = 0, andou = 0;
+      /* Guarda a distância que falta do salto pedido por uma seta, e não uma
+         posição de destino: assim o deslize convive com a normalização do
+         laço, que reescreve `pos` a cada volta. */
+      let resta = 0;
+
+      const passo = () => {
+        if (resta !== 0 && !arrastando) {
+          const avanco = resta * 0.14;
+          pos += avanco;
+          resta -= avanco;
+          if (Math.abs(resta) < 0.5) { pos += resta; resta = 0; }
+        }
+        if (metade > 0) {
+          while (pos <= -metade) pos += metade;
+          while (pos > 0) pos -= metade;
+        }
+        pista.style.transform = 'translate3d(' + pos.toFixed(2) + 'px,0,0)';
+        requestAnimationFrame(passo);
+      };
+      requestAnimationFrame(passo);
+
+      caixa.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 && e.pointerType === 'mouse') return;
+        arrastando = true; andou = 0; ultimoX = e.clientX;
+        caixa.setPointerCapture(e.pointerId);
+        caixa.classList.add('is-arrastando');
+      });
+      caixa.addEventListener('pointermove', (e) => {
+        if (!arrastando) return;
+        const d = e.clientX - ultimoX;
+        ultimoX = e.clientX;
+        andou += Math.abs(d);
+        pos += d;
+      });
+      const soltar = (e) => {
+        if (!arrastando) return;
+        arrastando = false;
+        caixa.classList.remove('is-arrastando');
+        if (caixa.hasPointerCapture?.(e.pointerId)) caixa.releasePointerCapture(e.pointerId);
+      };
+      caixa.addEventListener('pointerup', soltar);
+      caixa.addEventListener('pointercancel', soltar);
+      // um arrasto não deve virar clique em algo dentro da fita
+      caixa.addEventListener('click', (e) => {
+        if (andou > 6) { e.preventDefault(); e.stopPropagation(); }
+      }, true);
+
+      // usado pelas setas: um clique anda um cartão
+      caixa.avancar = (dir) => {
+        const item = pista.children[0];
+        if (!item) return;
+        const largura = item.getBoundingClientRect().width +
+          (parseFloat(getComputedStyle(item).marginRight) || 0);
+        if (reduzido) { pos -= dir * largura; return; }
+        resta -= dir * largura;
+      };
+
+      pista.dataset.pronta = '1';
+      caixa.classList.add('is-loop');
+    });
+
+    // Sem fita montada, o controle some em vez de ficar inerte na tela
+    $$('[data-fita-nav]').forEach((botao) => {
+      const alvo = document.getElementById(botao.dataset.alvo);
+      if (!alvo || typeof alvo.avancar !== 'function') { botao.remove(); return; }
+      botao.addEventListener('click', () => alvo.avancar(botao.dataset.fitaNav === 'next' ? 1 : -1));
+    });
+  }
+
+  /* ======================================================================
      GALERIA DE PROJETOS: filtros
      ====================================================================== */
   function initGallery() {
@@ -588,6 +691,7 @@ const EF_WHATSAPP_LINK =
     initFaq();
     initCounters();
     initBars();
+    initFitas();
     initGallery();
     initMasks();
     initEstimate();
