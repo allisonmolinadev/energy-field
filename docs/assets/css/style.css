@@ -249,6 +249,14 @@ p { max-width: 66ch; }
 .btn--white { background: #fff; color: var(--on-light); box-shadow: 0 8px 24px -12px rgba(0,0,0,.5); }
 .btn--white:hover { background: var(--paper); }
 
+/* Secundário sobre fotografia: azul claro sólido, para não sumir na imagem */
+.btn--sky {
+  background: #cfd1f2; color: var(--bg-3);
+  border: 0; box-shadow: 0 8px 24px -12px rgba(0,0,0,.45);
+}
+.btn--sky:hover { background: #e0e1f8; color: var(--bg-3); }
+.btn--sky:active { background: #bcbeea; }
+
 .btn--lg { min-height: 60px; padding: 18px 34px; font-size: 1.05rem; }
 .btn--sm { min-height: 44px; padding: 11px 20px; font-size: .93rem; }
 .btn--block { display: flex; width: 100%; }
