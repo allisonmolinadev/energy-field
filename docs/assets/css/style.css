@@ -401,11 +401,12 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
   background: rgba(20,17,66,.5);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
 }
+/* Mesma largura e mesmas bordas do card do simulador, logo abaixo */
 .hero__strip ul {
   width: 100%; max-width: var(--wrap); margin-inline: auto;
   padding: 20px var(--gutter);
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 18px clamp(30px, 6vw, 76px);
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  gap: 18px clamp(24px, 4vw, 48px);
 }
 .hero__stat { display: flex; align-items: baseline; gap: 10px; }
 .hero__stat b {
