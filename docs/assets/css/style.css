@@ -385,15 +385,6 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
 .hero__sub { max-width: 46ch; }
 .hero__sub b { color: var(--on-dark); font-weight: 700; }
 .hero .btn-row { margin-top: 36px; }
-.hero__note { margin-top: 30px; max-width: 50ch; font-size: .78rem; line-height: 1.6; color: rgba(255,255,255,.38); }
-
-/* Selo de credibilidade em linha, discreto */
-.hero__meta {
-  margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 22px;
-  font-size: .84rem; color: var(--on-dark-3);
-}
-.hero__meta li { display: flex; align-items: center; gap: 8px; }
-.hero__meta svg { color: var(--sun-500); flex: none; }
 
 /* Barra de dados ancorada na base do banner, discreta sobre a foto */
 .hero__strip {
