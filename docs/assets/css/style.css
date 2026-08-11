@@ -404,7 +404,8 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
 .hero__strip ul {
   width: 100%; max-width: var(--wrap); margin-inline: auto;
   padding: 20px var(--gutter);
-  display: flex; flex-wrap: wrap; gap: 18px clamp(28px, 5vw, 64px);
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 18px clamp(30px, 6vw, 76px);
 }
 .hero__stat { display: flex; align-items: baseline; gap: 10px; }
 .hero__stat b {
@@ -418,7 +419,8 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
   .hero { flex-direction: column; justify-content: center; padding-bottom: 0; }
   .hero > .wrap { width: 100%; margin-block: auto; padding-block: clamp(28px, 6vw, 44px); }
   .hero__strip { position: static; width: 100%; background: var(--bg-3); }
-  .hero__strip ul { gap: 14px 26px; padding-block: 18px; }
+  /* Com poucos itens por linha, centralizar deixaria a última solta: alinha à esquerda */
+  .hero__strip ul { justify-content: flex-start; gap: 14px 26px; padding-block: 18px; }
   .hero__stat { flex-direction: column; gap: 3px; }
 }
 
