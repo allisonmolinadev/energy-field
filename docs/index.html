@@ -67,8 +67,8 @@
         <li><a class="nav__link" href="#beneficios">Benefícios</a></li>
         <li><a class="nav__link" href="#como-funciona">Como funciona</a></li>
         <li><a class="nav__link" href="#projetos">Projetos</a></li>
-        <li><a class="nav__link" href="#faq">Dúvidas</a></li>
-        <li><a class="nav__link" href="#contato">Contato</a></li>
+        <li><a class="nav__link" href="faq.html">Dúvidas</a></li>
+        <li><a class="nav__link" href="#simulador">Contato</a></li>
       </ul>
     </nav>
 
@@ -92,8 +92,8 @@
       <li><a href="#beneficios">Benefícios <span>→</span></a></li>
       <li><a href="#como-funciona">Como funciona <span>→</span></a></li>
       <li><a href="#projetos">Projetos <span>→</span></a></li>
-      <li><a href="#faq">Dúvidas <span>→</span></a></li>
-      <li><a href="#contato">Contato <span>→</span></a></li>
+      <li><a href="faq.html">Dúvidas <span>→</span></a></li>
+      <li><a href="#simulador">Contato <span>→</span></a></li>
     </ul>
     <div class="mobile-nav__foot">
       <a class="btn btn--block" href="#simulador">Simular minha economia</a>
@@ -136,7 +136,7 @@
         <div class="btn-row" data-anim data-delay=".15">
           <a class="btn btn--lg" href="#simulador">Simular minha economia</a>
           <a class="btn btn--sky btn--lg" data-wa href="#" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
             Falar com um especialista
           </a>
         </div>
@@ -165,144 +165,88 @@
 </section>
 
 <!-- =====================================================================
-     2. SIMULADOR
+     2. CALCULADORA DE ECONOMIA
+     Cálculo em tempo real: valor da conta × SAVINGS_PERCENTAGE (main.js).
+     Fica entre o Hero e o formulário de orçamento, conduzindo o visitante
+     da promessa para a estimativa e da estimativa para o lead.
      ===================================================================== -->
-<section class="section section--tight sim glow" id="simulador">
+<section class="section section--tight calc glow" id="calculadora">
   <div class="wrap">
-    <div class="sim__card" data-form-wrap data-anim>
 
-      <aside class="sim__aside">
-        <p class="eyebrow">Simulação gratuita</p>
-        <h2 class="h2">Faça sua simulação em poucos segundos.</h2>
-        <p class="lead">Veja quanto você pode economizar com energia solar!</p>
+    <div class="sec-head calc__head" data-anim>
+      <h2 class="h2">Simule sua economia</h2>
+      <p class="lead">
+        Informe o valor médio da sua conta de energia e veja quanto você poderia economizar por mês.
+      </p>
+    </div>
 
-        <ul class="sim__points">
-          <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            Simulação sem custo e sem compromisso
-          </li>
-          <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            Primeira parcela em até 120 dias
-          </li>
-          <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            Projeto dimensionado para o seu consumo
-          </li>
-        </ul>
+    <div class="calc__card" data-anim data-delay=".05">
 
-        <div class="sim__gauge" data-gauge>
-          <div class="sim__display">
-            <div class="sim__gauge-top">
-              <span>Potencial de economia</span>
-              <b data-gauge-value>até 95%</b>
-            </div>
-            <div class="sim__bar"><i data-gauge-bar></i></div>
-            <p data-gauge-caption>
-              Informe o valor médio da sua conta ao lado para ver uma estimativa. A economia pode variar conforme o
-              perfil de consumo, o local de instalação e as condições técnicas do projeto.
-            </p>
-          </div>
-        </div>
-      </aside>
-
-      <div class="sim__form">
-        <div class="sim__form-head">
-          <h3 class="h3">Receba sua simulação personalizada</h3>
-          <p>Leva menos de 1 minuto. Nossa equipe entra em contato pelo WhatsApp.</p>
+      <div class="calc__side">
+        <label class="calc__label" for="calc-conta">Valor da conta de energia</label>
+        <div class="calc__control">
+          <input class="calc__field" id="calc-conta" type="text" inputmode="decimal"
+                 autocomplete="off" placeholder="Ex: R$ 600,00"
+                 aria-describedby="calc-hint" data-calc-input>
+          <!-- O "R$" fica escondido enquanto o placeholder aparece, para não duplicar -->
+          <span class="calc__prefix" aria-hidden="true">R$</span>
         </div>
 
-        <form data-ef-form="simulador-topo" novalidate>
-          <div class="form-grid">
+        <p class="calc__error" data-calc-error role="alert">
+          Digite um valor válido para calcular sua economia.
+        </p>
 
-            <div class="field">
-              <label for="sim-nome">Nome <span>*</span></label>
-              <input class="control" id="sim-nome" name="nome" type="text" autocomplete="name"
-                     placeholder="Seu nome completo" required>
-              <span class="field__err">Campo obrigatório.</span>
+        <button class="btn btn--lg calc__run" type="button" data-calc-run>
+          <span class="btn__spin" aria-hidden="true"></span>
+          <span class="btn__label">Calcular economia</span>
+        </button>
+
+        <p class="calc__hint" id="calc-hint">
+          Pode digitar com vírgula ou ponto — 600, 600,50 ou 1.200,00.
+        </p>
+      </div>
+
+      <div class="calc__out" data-calc-out>
+        <div class="calc__states" role="status">
+
+          <p class="calc__out-idle">
+            Informe o valor da sua conta e clique em <b>Calcular economia</b>.
+          </p>
+
+          <p class="calc__out-loading">
+            <span class="calc__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            Calculando...
+          </p>
+
+          <div class="calc__out-done">
+            <p class="calc__out-label">Você poderia economizar até</p>
+            <div class="calc__box">
+              <p class="calc__value">
+                <span data-calc-result>R$ 0,00</span><span class="calc__per">/mês</span>
+              </p>
+              <p class="calc__base">
+                sobre uma conta de <b data-calc-base>R$ 0,00</b>
+              </p>
             </div>
-
-            <div class="field">
-              <label for="sim-whats">WhatsApp <span>*</span></label>
-              <input class="control" id="sim-whats" name="telefone" type="tel" inputmode="numeric"
-                     autocomplete="tel" data-mask="phone" placeholder="(00) 00000-0000" required>
-              <span class="field__err">Campo obrigatório.</span>
-            </div>
-
-            <div class="field">
-              <label for="sim-cidade">Cidade <span>*</span></label>
-              <input class="control" id="sim-cidade" name="cidade" type="text" autocomplete="address-level2"
-                     placeholder="Onde fica o imóvel" required>
-              <span class="field__err">Campo obrigatório.</span>
-            </div>
-
-            <div class="field field--money">
-              <label for="sim-conta">Valor médio da conta <span>*</span></label>
-              <input class="control" id="sim-conta" name="valor_conta" type="text" inputmode="numeric"
-                     data-mask="money" placeholder="R$ 0,00" required>
-              <span class="field__err">Campo obrigatório.</span>
-            </div>
-
-            <div class="field field--full">
-              <label>Tipo de imóvel <span>*</span></label>
-              <div class="choice" data-required-group>
-                <label class="choice__item">
-                  <input type="radio" name="tipo_imovel" value="Residencial" checked>
-                  <span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.7V20h14V9.7"/></svg>
-                    Residencial
-                  </span>
-                </label>
-                <label class="choice__item">
-                  <input type="radio" name="tipo_imovel" value="Comercial">
-                  <span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V6l7-3 7 3v15"/><path d="M9.5 10h.01M14.5 10h.01M9.5 14h.01M14.5 14h.01"/></svg>
-                    Comercial
-                  </span>
-                </label>
-                <label class="choice__item">
-                  <input type="radio" name="tipo_imovel" value="Rural / Produtor">
-                  <span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 11c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M4 21h16"/></svg>
-                    Rural
-                  </span>
-                </label>
-              </div>
-              <span class="field__err">Selecione o tipo de imóvel.</span>
-            </div>
-
           </div>
 
-          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
-          <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
-          <input type="hidden" name="utm_term">
-
-          <div class="form-foot">
-            <button class="btn btn--lg btn--block" type="submit">
-              <span class="btn__spin" aria-hidden="true"></span>
-              <span class="btn__label">Receber minha simulação gratuita</span>
-            </button>
-            <p class="form-legal">
-              Ao enviar, você autoriza o contato da Energy Field pelos dados informados.
-              Seus dados são tratados conforme nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
-            </p>
-            <div class="form-error" data-form-error role="alert"></div>
-          </div>
-        </form>
-
-        <div class="form-success" data-form-success role="status">
-          <div class="form-success__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          </div>
-          <h3 class="h3">Recebemos seus dados</h3>
-          <p>Nossa equipe já está preparando sua simulação personalizada e entra em contato pelo WhatsApp em breve.</p>
-          <a class="btn" data-wa href="#" target="_blank" rel="noopener">Adiantar pelo WhatsApp</a>
         </div>
+
+        <a class="btn btn--blue btn--lg calc__cta" href="#simulador" data-calc-cta>
+          Quero fazer meu orçamento
+        </a>
       </div>
 
     </div>
+
+    <p class="calc__legal">
+      Estimativa baseada em economia de até 85%. O valor final pode variar conforme consumo,
+      localização, projeto e condições técnicas.
+    </p>
+
   </div>
 </section>
+
 
 <!-- =====================================================================
      3. BENEFÍCIOS — bento
@@ -311,7 +255,6 @@
   <div class="wrap">
     <div class="sec-head sec-head--row" data-anim>
       <div>
-        <p class="eyebrow">Benefícios</p>
         <h2 class="h1">Bons motivos para gerar <span class="accent-i">sua própria energia.</span></h2>
       </div>
       <p class="lead" style="max-width:36ch">
@@ -344,7 +287,7 @@
 
       <article class="tile" data-anim>
         <span class="tile__ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20.5h10"/><path d="M10 20.5c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2.3.5-4.1.4-5.2-.4-1.1-.8-1.8-2.2-2.3-3.7 2.3-.5 4.1-.4 5.2.4z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
         </span>
         <h3>Energia limpa e sustentável</h3>
         <p>Fonte renovável que reduz impacto ambiental e coloca sua casa ou empresa alinhada a um futuro mais responsável.</p>
@@ -352,7 +295,7 @@
 
       <article class="tile" data-anim data-delay=".05">
         <span class="tile__ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.9 15.1a2.2 2.2 0 0 1 0 3.1l-2.7 2.7a2.2 2.2 0 0 1-3.1 0L3.1 9a2.2 2.2 0 0 1 0-3.1l2.7-2.7a2.2 2.2 0 0 1 3.1 0z"/><path d="m14.5 12.5 1.8-1.8M11.3 9.3l1.8-1.8M8.1 6.1l1.8-1.8M17.7 15.7l1.8-1.8"/></svg>
         </span>
         <h3>Projeto personalizado</h3>
         <p>Cada sistema é dimensionado de acordo com o consumo real do cliente. Nada de solução genérica.</p>
@@ -360,7 +303,7 @@
 
       <article class="tile" data-anim data-delay=".1">
         <span class="tile__ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="2" y="13" width="5" height="6.5" rx="1.8"/><rect x="17" y="13" width="5" height="6.5" rx="1.8"/><path d="M19.5 19.5v.8a2.2 2.2 0 0 1-2.2 2.2H13.5"/></svg>
         </span>
         <h3>Instalação com equipe especializada</h3>
         <p>Profissionais preparados cuidam de cada etapa da instalação, com segurança e organização.</p>
@@ -389,54 +332,29 @@
      4. CONDIÇÃO COMERCIAL
      ===================================================================== -->
 <section class="section offer glow" id="condicoes">
+  <div class="offer__media">
+    <img src="assets/img/casa-fim-de-tarde.jpg" loading="lazy" width="1500" height="1000" alt="">
+  </div>
+
   <div class="wrap">
-    <div class="offer__grid">
+    <div class="offer__content" data-anim>
+      <h2 class="h1">As melhores condições <span class="accent-i">para você!</span></h2>
 
-      <div data-anim>
-        <p class="eyebrow">Condição comercial</p>
-        <h2 class="h1">As melhores condições <span class="accent-i">para você!</span></h2>
-
-        <div class="offer__figure mt-3">
-          <b>120</b>
-          <span>dias para o pagamento da primeira parcela</span>
-        </div>
-
-        <p class="lead mt-3">
-          Na Energy Field, a <b style="color:var(--on-dark)">primeira parcela pode ser paga em até 120 dias</b>, com
-          parcelas menores que o valor da sua conta de energia.
-        </p>
-
-        <div class="btn-row mt-3">
-          <a class="btn btn--lg" href="#simulador">Quero uma simulação gratuita</a>
-        </div>
-
-        <p class="note-legal">Sujeito à análise e condições de aprovação.</p>
+      <div class="offer__figure">
+        <p class="offer__count"><b data-count="120">0</b> <em>dias</em></p>
+        <span>para o pagamento da primeira parcela</span>
       </div>
 
-      <div class="compare" data-anim data-delay=".08">
-        <p class="compare__title">Comparação ilustrativa</p>
+      <p class="lead">
+        Na Energy Field, a <b>primeira parcela pode ser paga em até 120 dias</b>, com
+        parcelas menores que o valor da sua conta de energia.
+      </p>
 
-        <div class="compare__row">
-          <div class="compare__label"><span>Conta de energia hoje</span><b>100%</b></div>
-          <div class="compare__track">
-            <div class="compare__fill compare__fill--bill" data-bar="100%">o que você paga hoje</div>
-          </div>
-        </div>
-
-        <div class="compare__row">
-          <div class="compare__label"><span>Parcela do sistema solar</span><b>pode ser menor</b></div>
-          <div class="compare__track">
-            <div class="compare__fill compare__fill--fee" data-bar="66%">parcela que cabe no orçamento</div>
-          </div>
-        </div>
-
-        <p class="compare__hint">
-          Em vez de pagar a conta de luz todo mês sem retorno, você passa a investir em um sistema que é seu,
-          e a parcela pode ficar abaixo do valor que já sai do seu bolso hoje. Valores ilustrativos:
-          o comparativo real é feito na sua simulação.
-        </p>
+      <div class="btn-row mt-3">
+        <a class="btn btn--lg" href="#simulador">Quero uma simulação gratuita</a>
       </div>
 
+      <p class="note-legal">Sujeito à análise e condições de aprovação.</p>
     </div>
   </div>
 </section>
@@ -449,7 +367,6 @@
 <section class="section section--light glow" id="para-quem">
   <div class="wrap">
     <div class="sec-head" data-anim>
-      <p class="eyebrow">Para quem é</p>
       <h2 class="h1">Energia solar para casa, empresa <span class="accent-i">ou propriedade.</span></h2>
       <p class="lead">Cada perfil tem uma necessidade de consumo diferente, e por isso um projeto diferente.</p>
     </div>
@@ -459,13 +376,25 @@
       <article class="aud" data-anim>
         <img src="assets/img/residencial-casa.jpg" loading="lazy" width="1500" height="1000"
              alt="Casa residencial com módulos fotovoltaicos instalados no telhado">
-        <p class="aud__tag">Residencial</p>
-        <h3>Residencial</h3>
-        <p>Para quem quer reduzir a conta de luz de casa.</p>
-        <div class="aud__foot">
-          <a class="link-arrow" href="#simulador">
-            Simular economia da minha casa
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+        <div class="aud__top">
+          <span class="aud__num" aria-hidden="true">01</span>
+          <p class="aud__tag">Residencial</p>
+        </div>
+
+        <div class="aud__body">
+          <h3>Residencial</h3>
+
+          <!-- Recolhido no estado compacto; abre no hover ou no foco por teclado -->
+          <div class="aud__reveal">
+            <div class="aud__reveal-in">
+              <p>Para quem quer reduzir a conta de luz de casa.</p>
+            </div>
+          </div>
+
+          <a class="aud__go" href="#simulador">
+            <span class="sr-only">Simular economia da minha casa</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
           </a>
         </div>
       </article>
@@ -473,13 +402,25 @@
       <article class="aud" data-anim data-delay=".06">
         <img src="assets/img/comercial-galpao.jpg" loading="lazy" width="1500" height="1000"
              alt="Cobertura de galpão comercial coberta por módulos fotovoltaicos">
-        <p class="aud__tag">Comercial</p>
-        <h3>Comercial</h3>
-        <p>Para empresas que querem previsibilidade e economia.</p>
-        <div class="aud__foot">
-          <a class="link-arrow" href="#simulador">
-            Simular economia da minha empresa
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+        <div class="aud__top">
+          <span class="aud__num" aria-hidden="true">02</span>
+          <p class="aud__tag">Comercial</p>
+        </div>
+
+        <div class="aud__body">
+          <h3>Comercial</h3>
+
+          <!-- Recolhido no estado compacto; abre no hover ou no foco por teclado -->
+          <div class="aud__reveal">
+            <div class="aud__reveal-in">
+              <p>Para empresas que querem previsibilidade e economia.</p>
+            </div>
+          </div>
+
+          <a class="aud__go" href="#simulador">
+            <span class="sr-only">Simular economia da minha empresa</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
           </a>
         </div>
       </article>
@@ -487,13 +428,25 @@
       <article class="aud" data-anim data-delay=".12">
         <img src="assets/img/rural-lavoura.jpg" loading="lazy" width="1500" height="1000"
              alt="Fileira de módulos fotovoltaicos instalada ao lado de uma lavoura">
-        <p class="aud__tag">Rural / Produtor</p>
-        <h3>Rural / Produtor</h3>
-        <p>Para quem precisa de energia para operação, produção e redução de custos.</p>
-        <div class="aud__foot">
-          <a class="link-arrow" href="#simulador">
-            Simular economia da propriedade
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+        <div class="aud__top">
+          <span class="aud__num" aria-hidden="true">03</span>
+          <p class="aud__tag">Rural / Produtor</p>
+        </div>
+
+        <div class="aud__body">
+          <h3>Rural / Produtor</h3>
+
+          <!-- Recolhido no estado compacto; abre no hover ou no foco por teclado -->
+          <div class="aud__reveal">
+            <div class="aud__reveal-in">
+              <p>Para quem precisa de energia para operação, produção e redução de custos.</p>
+            </div>
+          </div>
+
+          <a class="aud__go" href="#simulador">
+            <span class="sr-only">Simular economia da propriedade</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
           </a>
         </div>
       </article>
@@ -505,11 +458,10 @@
 <!-- =====================================================================
      6. COMO FUNCIONA
      ===================================================================== -->
-<section class="section section--dark meshed" id="como-funciona">
+<section class="section section--light how" id="como-funciona">
   <div class="wrap">
     <div class="sec-head sec-head--row" data-anim>
       <div>
-        <p class="eyebrow">Como funciona</p>
         <h2 class="h1">Do primeiro contato até <span class="accent-i">a sua economia.</span></h2>
       </div>
       <a class="btn btn--ghost" href="#simulador">Começar pela simulação</a>
@@ -519,36 +471,46 @@
       <div class="flow__track">
 
         <article class="step" data-anim>
-          <span class="step__num" aria-hidden="true">1</span>
-          <span class="step__dot" aria-hidden="true"></span>
+          <span class="step__num" aria-hidden="true">01</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5h8a1.2 1.2 0 0 1 1.2 1.2v2.6H6.8V3.7A1.2 1.2 0 0 1 8 2.5z"/><path d="M17.2 4.5H18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2h.8"/><path d="M8.5 12h7M8.5 16h4.5"/></svg>
+          </span>
           <h3>Você solicita a simulação</h3>
           <p>Preenche o formulário com seus dados e o valor médio da conta. Leva menos de 1 minuto.</p>
         </article>
 
         <article class="step" data-anim data-delay=".05">
-          <span class="step__num" aria-hidden="true">2</span>
-          <span class="step__dot" aria-hidden="true"></span>
+          <span class="step__num" aria-hidden="true">02</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><path d="M7.5 20.5v-5.5M12 20.5v-11M16.5 20.5v-8"/></svg>
+          </span>
           <h3>Analisamos seu consumo</h3>
           <p>Estudamos seu perfil de consumo e as condições do local para dimensionar o sistema certo.</p>
         </article>
 
-        <article class="step" data-anim data-delay=".1">
-          <span class="step__num" aria-hidden="true">3</span>
-          <span class="step__dot" aria-hidden="true"></span>
+        <article class="step" data-anim data-delay=".010">
+          <span class="step__num" aria-hidden="true">03</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><path d="M3 21h18"/><path d="M6.4 21 8 11.6h8L17.6 21"/><path d="M7.3 16.3h9.4M12 11.6V21"/></svg>
+          </span>
           <h3>Criamos o projeto ideal</h3>
           <p>Você recebe uma proposta personalizada, com estimativa de economia e condições de pagamento.</p>
         </article>
 
-        <article class="step" data-anim data-delay=".15">
-          <span class="step__num" aria-hidden="true">4</span>
-          <span class="step__dot" aria-hidden="true"></span>
+        <article class="step" data-anim data-delay=".015">
+          <span class="step__num" aria-hidden="true">04</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
           <h3>Instalamos o sistema</h3>
           <p>Nossa equipe especializada executa a instalação e acompanha as etapas junto à concessionária.</p>
         </article>
 
-        <article class="step" data-anim data-delay=".2">
-          <span class="step__num" aria-hidden="true">5</span>
-          <span class="step__dot" aria-hidden="true"></span>
+        <article class="step" data-anim data-delay=".020">
+          <span class="step__num" aria-hidden="true">05</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 17 13.5 9 9 13.5 2.5 7"/><path d="M15.5 17h6v-6"/></svg>
+          </span>
           <h3>Você começa a economizar</h3>
           <p>O sistema entra em operação e sua conta de energia passa a refletir a geração própria.</p>
         </article>
@@ -561,38 +523,38 @@
 <!-- =====================================================================
      7. NÚMEROS
      =====================================================================
-     >>> ATUALIZAR DEPOIS <<<
-     Valores são PLACEHOLDERS. Substitua o "X" pelo número real e, para
-     ativar a contagem, troque data-count="X" pelo número (ex.: "480").
+     Para atualizar um número, troque o valor de data-count. O texto dentro
+     do <span> é só o estado inicial da contagem. Use data-decimals quando o
+     número tiver casas decimais, como o 2,5 de "R$ 2,5M".
      ===================================================================== -->
 <section class="section section--tight section--dark" id="numeros">
   <div class="wrap">
     <div class="sec-head" data-anim>
-      <p class="eyebrow">Energy Field em números</p>
       <h2 class="h1">Resultados que <span class="accent-i">geram confiança.</span></h2>
     </div>
 
-    <div class="stats" data-anim>
-      <div class="stat">
-        <div class="stat__num"><i>+</i><span data-count="X">X</span></div>
-        <p class="stat__label">Clientes atendidos</p>
-        <small>Número a ser atualizado pela Energy Field</small>
+    <div class="numeros" data-anim>
+
+      <figure class="numeros__foto">
+        <img src="assets/img/equipe-tecnica.jpg" loading="lazy" width="1500" height="1000"
+             alt="" aria-hidden="true">
+      </figure>
+
+      <div class="stat stat--tall">
+        <div class="stat__num"><i>+</i><i class="stat__unit">R$</i><span data-count="2.5" data-decimals="1">0,0</span><i class="stat__unit">M</i></div>
+        <p class="stat__label">Gerados em economia para nossos clientes</p>
       </div>
+
       <div class="stat">
-        <div class="stat__num"><i>+</i><span data-count="X">X</span></div>
-        <p class="stat__label">Projetos executados</p>
-        <small>Número a ser atualizado pela Energy Field</small>
-      </div>
-      <div class="stat">
-        <div class="stat__num"><i>+</i><span data-count="X">X</span></div>
+        <div class="stat__num"><i>+</i><span data-count="5000">0</span></div>
         <p class="stat__label">Placas instaladas</p>
-        <small>Número a ser atualizado pela Energy Field</small>
       </div>
+
       <div class="stat">
-        <div class="stat__num"><i>+</i><span data-count="X">X</span><i style="font-size:.44em;margin-left:5px">kWp</i></div>
-        <p class="stat__label">Potência instalada</p>
-        <small>Número a ser atualizado pela Energy Field</small>
+        <div class="stat__num"><i>+</i><span data-count="400">0</span></div>
+        <p class="stat__label">Clientes atendidos</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -604,7 +566,6 @@
   <div class="wrap">
     <div class="sec-head" data-anim>
       <div>
-        <p class="eyebrow">Projetos</p>
         <h2 class="h1">Projetos instalados <span class="accent-i">pela Energy Field</span></h2>
         <p class="lead">
           Cada sistema é desenvolvido de acordo com o perfil de consumo do cliente, garantindo eficiência,
@@ -810,7 +771,6 @@
     <div class="split">
 
       <div data-anim>
-        <p class="eyebrow">Sobre nós</p>
         <h2 class="h1">Energia solar para transformar <span class="accent-i">economia em futuro.</span></h2>
         <p class="lead mt-2">
           A Energy Field desenvolve soluções em energia solar para residências, empresas e propriedades que buscam
@@ -867,7 +827,6 @@
 <section class="section section--tight section--dark meshed" id="diferenciais">
   <div class="wrap">
     <div class="sec-head" data-anim>
-      <p class="eyebrow">Diferenciais</p>
       <h2 class="h1">Por que escolher <span class="accent-i">a Energy Field</span></h2>
     </div>
 
@@ -883,7 +842,7 @@
 
       <article class="card" data-anim data-delay=".05">
         <span class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5.5c0-1.9-2.2-2.5-5-2.5s-5 .8-5 3 2.2 2.8 5 3.5 5 1.4 5 3.5-2.2 3-5 3-5-.6-5-2.5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5z"/><path d="M14 2.5v5h5"/><path d="M12.6 10.4 9.8 14.9h2.6l-.8 3.5 3.2-4.7h-2.6z"/></svg>
         </span>
         <h3>Economia real na conta de luz</h3>
         <p>A energia solar pode reduzir significativamente os gastos mensais com energia.</p>
@@ -919,14 +878,21 @@
 <section class="section section--tight section--light" id="depoimentos">
   <div class="wrap">
     <div class="sec-head" data-anim>
-      <p class="eyebrow">Prova social</p>
       <h2 class="h1">Quem já escolheu a Energy Field <span class="accent-i">recomenda.</span></h2>
       <p class="lead">Avaliações de clientes no Google.</p>
     </div>
 
     <div class="reviews">
 
-      <article class="review review--lead" data-anim>
+      <article class="review" data-anim>
+        <span class="review__g" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="22" height="22">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+        </span>
         <div class="stars" aria-label="5 de 5 estrelas">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
@@ -945,6 +911,14 @@
       </article>
 
       <article class="review" data-anim data-delay=".06">
+        <span class="review__g" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="22" height="22">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+        </span>
         <div class="stars" aria-label="5 de 5 estrelas">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
@@ -963,6 +937,14 @@
       </article>
 
       <article class="review" data-anim data-delay=".12">
+        <span class="review__g" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="22" height="22">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+        </span>
         <div class="stars" aria-label="5 de 5 estrelas">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
@@ -985,254 +967,15 @@
 </section>
 
 <!-- =====================================================================
-     13. FORMULÁRIO DE SIMULAÇÃO
-     ===================================================================== -->
-<section class="section section--dark glow" id="contato">
-  <div class="wrap">
-    <div class="split">
-
-      <div data-anim>
-        <p class="eyebrow">Simulação gratuita</p>
-        <h2 class="h1">Quer descobrir quanto pode economizar <span class="accent-i">com energia solar?</span></h2>
-        <p class="lead mt-2">
-          Preencha seus dados e receba uma simulação personalizada para sua casa, empresa ou propriedade.
-        </p>
-
-        <ul class="checklist">
-          <li>
-            <i aria-hidden="true"></i>
-            <div>
-              <strong>Sem custo e sem compromisso</strong>
-              <p>Você recebe a estimativa e decide com calma.</p>
-            </div>
-          </li>
-          <li>
-            <i aria-hidden="true"></i>
-            <div>
-              <strong>Atendimento humano</strong>
-              <p>Um especialista da Energy Field fala com você pelo WhatsApp.</p>
-            </div>
-          </li>
-          <li>
-            <i aria-hidden="true"></i>
-            <div>
-              <strong>Condições facilitadas</strong>
-              <p>Primeira parcela em até 120 dias, sujeito à análise.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div data-anim data-delay=".08" data-form-wrap>
-        <div class="sim__form pane">
-          <div class="sim__form-head">
-            <h3 class="h3">Fazer minha simulação gratuita</h3>
-            <p>Preencha os campos abaixo e respondemos rapidinho.</p>
-          </div>
-
-          <form data-ef-form="simulacao-contato" novalidate>
-            <div class="form-grid">
-
-              <div class="field">
-                <label for="ct-nome">Nome <span>*</span></label>
-                <input class="control" id="ct-nome" name="nome" type="text" autocomplete="name"
-                       placeholder="Seu nome completo" required>
-                <span class="field__err">Campo obrigatório.</span>
-              </div>
-
-              <div class="field">
-                <label for="ct-whats">WhatsApp <span>*</span></label>
-                <input class="control" id="ct-whats" name="telefone" type="tel" inputmode="numeric"
-                       autocomplete="tel" data-mask="phone" placeholder="(00) 00000-0000" required>
-                <span class="field__err">Campo obrigatório.</span>
-              </div>
-
-              <div class="field">
-                <label for="ct-cidade">Cidade <span>*</span></label>
-                <input class="control" id="ct-cidade" name="cidade" type="text" autocomplete="address-level2"
-                       placeholder="Onde fica o imóvel" required>
-                <span class="field__err">Campo obrigatório.</span>
-              </div>
-
-              <div class="field field--money">
-                <label for="ct-conta">Valor médio da conta <span>*</span></label>
-                <input class="control" id="ct-conta" name="valor_conta" type="text" inputmode="numeric"
-                       data-mask="money" placeholder="R$ 0,00" required>
-                <span class="field__err">Campo obrigatório.</span>
-              </div>
-
-              <div class="field field--full">
-                <label for="ct-tipo">Tipo de imóvel <span>*</span></label>
-                <select class="control" id="ct-tipo" name="tipo_imovel" required>
-                  <option value="Residencial">Residencial</option>
-                  <option value="Comercial">Comercial</option>
-                  <option value="Rural / Produtor">Rural / Produtor</option>
-                </select>
-                <span class="field__err">Campo obrigatório.</span>
-              </div>
-
-              <div class="field field--full">
-                <label for="ct-msg">Mensagem (opcional)</label>
-                <textarea class="control" id="ct-msg" name="mensagem" rows="3"
-                          placeholder="Conte um pouco sobre o imóvel ou sobre o que você precisa"></textarea>
-              </div>
-
-            </div>
-
-            <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
-            <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
-            <input type="hidden" name="utm_term">
-
-            <div class="form-foot">
-              <button class="btn btn--lg btn--block" type="submit">
-                <span class="btn__spin" aria-hidden="true"></span>
-                <span class="btn__label">Fazer minha simulação gratuita</span>
-              </button>
-              <p class="form-legal">
-                Ao enviar, você autoriza o contato da Energy Field pelos dados informados.
-                Consulte nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
-              </p>
-              <div class="form-error" data-form-error role="alert"></div>
-            </div>
-          </form>
-
-          <div class="form-success" data-form-success role="status">
-            <div class="form-success__icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            </div>
-            <h3 class="h3">Solicitação enviada</h3>
-            <p>Em breve um especialista da Energy Field entra em contato com sua simulação personalizada.</p>
-            <a class="btn" data-wa href="#" target="_blank" rel="noopener">Falar agora no WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================================
-     14. FAQ
-     ===================================================================== -->
-<section class="section section--light" id="faq">
-  <div class="wrap">
-    <div class="sec-head" data-anim>
-      <p class="eyebrow">Dúvidas frequentes</p>
-      <h2 class="h1">Dúvidas Frequentes da <span class="accent-i">Energy Field</span></h2>
-      <p class="lead">As perguntas que mais recebemos, respondidas de forma simples e direta.</p>
-    </div>
-
-    <div class="faq" data-anim>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">01</span>
-          Como funciona a energia solar?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>A energia solar funciona por meio de painéis fotovoltaicos que captam a luz do sol e a transformam em energia elétrica para ser usada na sua casa, empresa ou propriedade.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">02</span>
-          Quanto posso economizar na conta de luz?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>Com um projeto bem dimensionado, é possível reduzir significativamente o valor da conta de energia, podendo chegar a até 95% de economia, de acordo com o perfil de consumo e as condições do local.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">03</span>
-          A energia solar funciona em dias nublados ou chuvosos?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>Sim. Mesmo em dias nublados, os painéis continuam gerando energia, porém em menor intensidade. Por isso, o sistema é dimensionado considerando a média de consumo e as condições reais de geração.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">04</span>
-          O sistema funciona durante a noite?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>Durante a noite, os painéis não geram energia, pois dependem da luz solar. Porém, a energia gerada durante o dia pode ajudar a compensar o consumo, conforme as regras da concessionária local.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">05</span>
-          Minha conta de luz pode zerar?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>Não necessariamente. Mesmo com energia solar, podem existir cobranças mínimas, taxas ou custos da concessionária. Ainda assim, a redução na conta pode ser muito significativa.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">06</span>
-          Energia solar valoriza o imóvel?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>Sim. Um sistema de energia solar pode valorizar o imóvel, pois agrega economia, tecnologia e sustentabilidade à propriedade.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">07</span>
-          A instalação demora muito?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>O prazo pode variar conforme o tamanho do projeto, condições do local e etapas de aprovação junto à concessionária. A Energy Field acompanha todo o processo para tornar a instalação mais segura e organizada.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">08</span>
-          Precisa de muita manutenção?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>Não. O sistema de energia solar exige baixa manutenção. Em geral, são indicadas limpezas periódicas e acompanhamento do desempenho para manter a eficiência do sistema.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">09</span>
-          Posso financiar meu sistema de energia solar?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>Sim. A Energy Field oferece condições facilitadas para tornar a energia solar mais acessível. A primeira parcela pode ser paga em até 120 dias, com possibilidade de parcelas menores que sua conta de energia, sujeito à análise.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">
-          <span class="faq__n">10</span>
-          Como faço uma simulação?
-          <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i>
-        </button>
-        <div class="faq__a"><div><p>É simples. Informe o valor médio da sua conta de energia e nossa equipe prepara uma simulação personalizada para mostrar o potencial de economia para sua casa, empresa ou propriedade.</p></div></div>
-      </div>
-
-    </div>
-
-    <div class="mt-4" data-anim>
-      <h3 class="h3">Pronto para descobrir quanto você pode economizar?</h3>
-      <p class="mt-1">Faça sua simulação gratuita com a Energy Field.</p>
-      <div class="btn-row mt-2">
-        <a class="btn btn--lg" href="#simulador">Fazer minha simulação gratuita</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================================
-     15. CTA FINAL
+     13. CTA FINAL
      ===================================================================== -->
 <section class="section cta-final">
+  <div class="cta-final__media">
+    <img src="assets/img/casa-fim-de-tarde.jpg" loading="lazy" width="1500" height="1000" alt="">
+  </div>
+
   <div class="wrap">
     <div class="cta-final__box" data-anim>
-      <img src="assets/img/casa-fim-de-tarde.jpg" loading="lazy" width="1500" height="1000" alt="">
       <div>
         <h2 class="h1">Pronto para transformar <span class="accent-i">energia em economia?</span></h2>
         <p class="lead">Faça sua simulação gratuita e descubra o projeto ideal para sua casa ou empresa.</p>
@@ -1254,11 +997,150 @@
 
       <div class="btn-row">
         <a class="btn btn--lg" data-wa href="#" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.09c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.11-.96-.29-1.66-.59-2.92-1.26-4.83-4.2-4.98-4.4-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.7.8.61.39.94 1.32 3.24 1.44 3.47.12.24.2.51.04.81-.16.31-.24.5-.47.77-.24.27-.5.6-.71.81-.24.24-.48.5-.21.97.27.47 1.2 1.98 2.58 3.21 1.77 1.58 3.27 2.07 3.74 2.3.47.24.74.2 1.01-.12.27-.31 1.16-1.35 1.47-1.82.31-.47.62-.39 1.04-.24.42.16 2.68 1.27 3.14 1.5.47.24.78.35.89.55.12.19.12 1.11-.12 1.79z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           Falar com a Energy Field
         </a>
         <a class="btn btn--sky btn--lg" href="#simulador">Simular minha economia</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     14. SIMULADOR
+     ===================================================================== -->
+<section class="section section--tight sim glow" id="simulador">
+  <div class="wrap">
+    <div class="sim__card" data-form-wrap data-anim>
+
+      <aside class="sim__aside">
+        <h2 class="h2">Faça sua simulação em poucos segundos.</h2>
+        <p class="lead">Veja quanto você pode economizar com energia solar!</p>
+
+        <ul class="sim__points">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Simulação sem custo e sem compromisso
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Primeira parcela em até 120 dias
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Projeto dimensionado para o seu consumo
+          </li>
+        </ul>
+
+        <div class="sim__gauge" data-gauge>
+          <div class="sim__display">
+            <div class="sim__gauge-top">
+              <span>Potencial de economia</span>
+              <b data-gauge-value>até 95%</b>
+            </div>
+            <div class="sim__bar"><i data-gauge-bar></i></div>
+            <p data-gauge-caption>
+              Informe o valor médio da sua conta ao lado para ver uma estimativa. A economia pode variar conforme o
+              perfil de consumo, o local de instalação e as condições técnicas do projeto.
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="sim__form">
+        <div class="sim__form-head">
+          <h3 class="h3">Receba sua simulação personalizada</h3>
+          <p>Leva menos de 1 minuto. Nossa equipe entra em contato pelo WhatsApp.</p>
+        </div>
+
+        <form data-ef-form="simulador-topo" novalidate>
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="sim-nome">Nome <span>*</span></label>
+              <input class="control" id="sim-nome" name="nome" type="text" autocomplete="name"
+                     placeholder="Seu nome completo" required>
+              <span class="field__err">Campo obrigatório.</span>
+            </div>
+
+            <div class="field">
+              <label for="sim-whats">WhatsApp <span>*</span></label>
+              <input class="control" id="sim-whats" name="telefone" type="tel" inputmode="numeric"
+                     autocomplete="tel" data-mask="phone" placeholder="(00) 00000-0000" required>
+              <span class="field__err">Campo obrigatório.</span>
+            </div>
+
+            <div class="field">
+              <label for="sim-cidade">Cidade <span>*</span></label>
+              <input class="control" id="sim-cidade" name="cidade" type="text" autocomplete="address-level2"
+                     placeholder="Onde fica o imóvel" required>
+              <span class="field__err">Campo obrigatório.</span>
+            </div>
+
+            <div class="field field--money">
+              <label for="sim-conta">Valor médio da conta <span>*</span></label>
+              <input class="control" id="sim-conta" name="valor_conta" type="text" inputmode="numeric"
+                     data-mask="money" placeholder="R$ 0,00" required>
+              <span class="field__err">Campo obrigatório.</span>
+            </div>
+
+            <div class="field field--full">
+              <label>Tipo de imóvel <span>*</span></label>
+              <div class="choice" data-required-group>
+                <label class="choice__item">
+                  <input type="radio" name="tipo_imovel" value="Residencial" checked>
+                  <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.7V20h14V9.7"/></svg>
+                    Residencial
+                  </span>
+                </label>
+                <label class="choice__item">
+                  <input type="radio" name="tipo_imovel" value="Comercial">
+                  <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V6l7-3 7 3v15"/><path d="M9.5 10h.01M14.5 10h.01M9.5 14h.01M14.5 14h.01"/></svg>
+                    Comercial
+                  </span>
+                </label>
+                <label class="choice__item">
+                  <input type="radio" name="tipo_imovel" value="Rural / Produtor">
+                  <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 11c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M4 21h16"/></svg>
+                    Rural
+                  </span>
+                </label>
+              </div>
+              <span class="field__err">Selecione o tipo de imóvel.</span>
+            </div>
+
+          </div>
+
+          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+          <input type="hidden" name="utm_term">
+
+          <div class="form-foot">
+            <button class="btn btn--lg btn--block" type="submit">
+              <span class="btn__spin" aria-hidden="true"></span>
+              <span class="btn__label">Receber minha simulação gratuita</span>
+            </button>
+            <p class="form-legal">
+              Ao enviar, você autoriza o contato da Energy Field pelos dados informados.
+              Seus dados são tratados conforme nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+            </p>
+            <div class="form-error" data-form-error role="alert"></div>
+          </div>
+        </form>
+
+        <div class="form-success" data-form-success role="status">
+          <div class="form-success__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h3 class="h3">Recebemos seus dados</h3>
+          <p>Nossa equipe já está preparando sua simulação personalizada e entra em contato pelo WhatsApp em breve.</p>
+          <a class="btn" data-wa href="#" target="_blank" rel="noopener">Adiantar pelo WhatsApp</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1285,7 +1167,7 @@
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7.5c0-.8.2-1.2 1.4-1.2H17V3.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2V9H8v3.4h2.6V21H14v-8.6h2.6l.4-3.4H14z"/></svg>
           </a>
           <a data-wa href="#" aria-label="WhatsApp da Energy Field" target="_blank" rel="noopener">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           </a>
         </div>
       </div>
@@ -1298,8 +1180,8 @@
           <a href="index.html#beneficios">Benefícios</a>
           <a href="index.html#como-funciona">Como funciona</a>
           <a href="projetos.html">Projetos</a>
-          <a href="index.html#faq">Dúvidas</a>
-          <a href="index.html#contato">Contato</a>
+          <a href="faq.html">Dúvidas</a>
+          <a href="index.html#simulador">Contato</a>
         </nav>
       </div>
 
@@ -1318,7 +1200,7 @@
         <h4>Contato</h4>
         <div class="footer__contact">
           <a data-wa href="#" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
             <span>WhatsApp<br><small>Falar com um especialista</small></span>
           </a>
           <a href="mailto:atendimento@energyfield.com.br">
@@ -1350,8 +1232,7 @@
 </footer>
 
 <a class="wa" data-wa href="#" target="_blank" rel="noopener" aria-label="Falar com especialista no WhatsApp">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.09c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.11-.96-.29-1.66-.59-2.92-1.26-4.83-4.2-4.98-4.4-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.7.8.61.39.94 1.32 3.24 1.44 3.47.12.24.2.51.04.81-.16.31-.24.5-.47.77-.24.27-.5.6-.71.81-.24.24-.48.5-.21.97.27.47 1.2 1.98 2.58 3.21 1.77 1.58 3.27 2.07 3.74 2.3.47.24.74.2 1.01-.12.27-.31 1.16-1.35 1.47-1.82.31-.47.62-.39 1.04-.24.42.16 2.68 1.27 3.14 1.5.47.24.78.35.89.55.12.19.12 1.11-.12 1.79z"/></svg>
-  <span class="wa__label">Falar com especialista</span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </a>
 
 <button class="to-top" type="button" aria-label="Voltar ao topo">

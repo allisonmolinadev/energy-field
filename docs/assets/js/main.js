@@ -25,6 +25,7 @@ const EF_CONFIG = {
      --------------------------------------------------------------------- */
   ECONOMIA_MAX: 95,   // % máximo comunicado
   ECONOMIA_MIN: 60,   // % mínimo usado na faixa da estimativa
+  ECONOMIA_CALCULADORA: 85,   // % usado na calculadora rápida abaixo do Hero
 
   /* ---------------------------------------------------------------------
      4) Redirecionamento opcional após o envio (ex.: '/obrigado.html').
@@ -32,6 +33,9 @@ const EF_CONFIG = {
      --------------------------------------------------------------------- */
   REDIRECT_SUCESSO: null,
 };
+
+/* Percentual único da calculadora rápida: conta × SAVINGS_PERCENTAGE% */
+const SAVINGS_PERCENTAGE = EF_CONFIG.ECONOMIA_CALCULADORA;
 
 /* Link de WhatsApp montado a partir da configuração */
 const EF_WHATSAPP_LINK =
@@ -197,10 +201,22 @@ const EF_WHATSAPP_LINK =
      ====================================================================== */
   function initCounters() {
     const els = $$('[data-count]');
-    if (!els.length || !('IntersectionObserver' in window)) {
-      els.forEach(el => { el.textContent = el.dataset.count; });
+    if (!els.length) return;
+
+    // data-decimals atende números quebrados, como o 2,5 de "R$ 2,5M"
+    const casasDe = (el) => parseInt(el.dataset.decimals || '0', 10);
+    const formatar = (n, casas) => n.toLocaleString('pt-BR', {
+      minimumFractionDigits: casas, maximumFractionDigits: casas
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => {
+        const alvo = parseFloat(el.dataset.count);
+        if (!isNaN(alvo)) el.textContent = formatar(alvo, casasDe(el));
+      });
       return;
     }
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -211,12 +227,13 @@ const EF_WHATSAPP_LINK =
         // Placeholders ainda não preenchidos (X) permanecem como estão
         if (isNaN(target)) return;
 
+        const casas = casasDe(el);
         const dur = 1500;
         const t0 = performance.now();
         const tick = (now) => {
           const p = Math.min((now - t0) / dur, 1);
           const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(target * eased).toLocaleString('pt-BR');
+          el.textContent = formatar(target * eased, casas);
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -437,6 +454,42 @@ const EF_WHATSAPP_LINK =
     return d ? parseInt(d, 10) / 100 : 0;
   };
 
+  /* Formata um número no padrão brasileiro: 1.275,5 -> "1.275,50" */
+  const numeroBR = (n) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const brl = (n) => 'R$ ' + numeroBR(n);
+
+  /* ----------------------------------------------------------------------
+     Leitura de valor digitado livremente, sem máscara.
+     Aceita 600 | 600,50 | 600.50 | 1.200,00 | 1,200.00 e devolve 0 para
+     entrada vazia, inválida, zero ou negativa.
+     ---------------------------------------------------------------------- */
+  function parseValorBR(v) {
+    const bruto = String(v);
+    if (bruto.indexOf('-') > -1) return 0;   // valor negativo não gera economia
+
+    let s = bruto.replace(/[^\d.,]/g, '');
+    if (!s) return 0;
+
+    const temVirgula = s.indexOf(',') > -1;
+    const temPonto   = s.indexOf('.') > -1;
+
+    if (temVirgula && temPonto) {
+      // O separador que aparece por último é o decimal
+      s = s.lastIndexOf(',') > s.lastIndexOf('.')
+        ? s.replace(/\./g, '').replace(',', '.')
+        : s.replace(/,/g, '');
+    } else if (temVirgula) {
+      // Só a última vírgula é decimal: "1,200,50" -> "1200.50"
+      s = s.replace(/,(?=[\s\S]*,)/g, '').replace(',', '.');
+    } else if (/\.\d{3}(?!\d)/.test(s)) {
+      // Ponto seguido de três dígitos é separador de milhar: "1.200" -> 1200
+      s = s.replace(/\./g, '');
+    }
+
+    const n = parseFloat(s);
+    return isFinite(n) && n > 0 ? n : 0;
+  }
+
   function initMasks() {
     $$('[data-mask="phone"]').forEach(inp => {
       inp.addEventListener('input', () => { inp.value = maskPhone(inp.value); });
@@ -444,6 +497,107 @@ const EF_WHATSAPP_LINK =
     $$('[data-mask="money"]').forEach(inp => {
       inp.addEventListener('input', () => { inp.value = maskMoney(inp.value); });
     });
+  }
+
+  /* ======================================================================
+     CALCULADORA DE ECONOMIA (bloco logo abaixo do Hero)
+     Fluxo: digita o valor -> clica em "Calcular economia" -> breve
+     processamento -> resultado (conta × SAVINGS_PERCENTAGE%).
+     ====================================================================== */
+  const CALC_DELAY = 1100;   // ms de processamento simulado, entre 800 e 1500
+
+  function initCalculator() {
+    const input  = $('[data-calc-input]');
+    const saida  = $('[data-calc-result]');
+    const painel = $('[data-calc-out]');
+    const botao  = $('[data-calc-run]');
+    if (!input || !saida || !painel || !botao) return;
+
+    const campo  = input.closest('.calc__control');
+    const base   = $('[data-calc-base]');
+    const erro   = $('[data-calc-error]');
+    const cta    = $('[data-calc-cta]');
+    const rotulo = $('.btn__label', botao);
+    const rotuloPadrao = rotulo ? rotulo.textContent : '';
+    let timer = null;
+
+    function marcarErro(ativo) {
+      if (erro)  erro.classList.toggle('is-visible', ativo);
+      if (campo) campo.classList.toggle('is-invalid', ativo);
+    }
+
+    /* Limpa o resultado anterior: ele deixa de valer assim que o valor muda */
+    function limparResultado() {
+      clearTimeout(timer);
+      painel.classList.remove('is-loading', 'is-done');
+      encerrarBotao();
+    }
+
+    function encerrarBotao() {
+      botao.classList.remove('is-loading');
+      botao.disabled = false;
+      if (rotulo) rotulo.textContent = rotuloPadrao;
+    }
+
+    function calculateSavings() {
+      const conta = parseValorBR(input.value);
+
+      if (conta <= 0) {
+        limparResultado();
+        marcarErro(true);
+        input.focus();
+        return;
+      }
+
+      marcarErro(false);
+      input.value = numeroBR(conta);
+
+      // Estado de carregamento: bloqueia cliques repetidos enquanto "calcula"
+      clearTimeout(timer);
+      painel.classList.remove('is-done');
+      painel.classList.add('is-loading');
+      botao.classList.add('is-loading');
+      botao.disabled = true;
+      if (rotulo) rotulo.textContent = 'Calculando...';
+
+      timer = setTimeout(() => {
+        saida.textContent = brl(conta * (SAVINGS_PERCENTAGE / 100));
+        if (base) base.textContent = brl(conta);
+        painel.classList.remove('is-loading');
+        painel.classList.add('is-done');
+        encerrarBotao();
+      }, CALC_DELAY);
+    }
+
+    botao.addEventListener('click', calculateSavings);
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); calculateSavings(); }
+    });
+
+    input.addEventListener('input', () => {
+      const limpo = input.value.replace(/[^\d.,]/g, '');
+      if (limpo !== input.value) input.value = limpo;
+      marcarErro(false);
+      limparResultado();
+    });
+
+    // Ao sair do campo, normaliza o que foi digitado para o padrão brasileiro
+    input.addEventListener('blur', () => {
+      const conta = parseValorBR(input.value);
+      if (conta > 0) input.value = numeroBR(conta);
+    });
+
+    // O CTA leva o valor simulado para o formulário de orçamento logo abaixo
+    if (cta) {
+      cta.addEventListener('click', () => {
+        const conta = parseValorBR(input.value);
+        const destino = $('#sim-conta');
+        if (!destino || conta <= 0) return;
+        destino.value = brl(conta);
+        destino.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    }
   }
 
   /* ======================================================================
@@ -457,8 +611,6 @@ const EF_WHATSAPP_LINK =
     const valor   = $('[data-gauge-value]');
     const legenda = $('[data-gauge-caption]');
     const input   = $('#sim-conta');
-
-    const brl = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     const render = () => {
       const conta = input ? moneyToNumber(input.value) : 0;
@@ -737,6 +889,7 @@ const EF_WHATSAPP_LINK =
     initFitas();
     initGallery();
     initMasks();
+    initCalculator();
     initEstimate();
     preencherHiddens();
     initForms();
