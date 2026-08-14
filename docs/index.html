@@ -186,8 +186,7 @@
         <label class="calc__label" for="calc-conta">Valor da conta de energia</label>
         <div class="calc__control">
           <input class="calc__field" id="calc-conta" type="text" inputmode="decimal"
-                 autocomplete="off" placeholder="Ex: R$ 600,00"
-                 aria-describedby="calc-hint" data-calc-input>
+                 autocomplete="off" placeholder="Ex: R$ 600,00" data-calc-input>
           <!-- O "R$" fica escondido enquanto o placeholder aparece, para não duplicar -->
           <span class="calc__prefix" aria-hidden="true">R$</span>
         </div>
@@ -200,10 +199,6 @@
           <span class="btn__spin" aria-hidden="true"></span>
           <span class="btn__label">Calcular economia</span>
         </button>
-
-        <p class="calc__hint" id="calc-hint">
-          Pode digitar com vírgula ou ponto — 600, 600,50 ou 1.200,00.
-        </p>
       </div>
 
       <div class="calc__out" data-calc-out>
@@ -239,6 +234,12 @@
       </div>
 
     </div>
+
+    <p class="calc__legal">
+      *Simulação estimada com base em economia de até 95% na conta de energia. O valor final pode
+      variar conforme consumo, localização, incidência solar, características do imóvel,
+      dimensionamento do projeto, aprovação técnica e condições da concessionária.
+    </p>
 
   </div>
 </section>

@@ -479,7 +479,6 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
   appearance: none; -webkit-appearance: none;
 }
 .calc__field::placeholder { color: var(--on-light-3); font-weight: 600; letter-spacing: 0; }
-.calc__hint { margin-top: 14px; font-size: .82rem; line-height: 1.6; color: var(--on-light-3); max-width: 40ch; }
 
 /* Campo em erro e aviso, sem sair da paleta */
 .calc__control.is-invalid { border-color: #C4443C; box-shadow: 0 0 0 3px rgba(196,68,60,.13); }
@@ -569,8 +568,17 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
 .calc__base b { color: rgba(29,25,99,.8); }
 .calc__cta { margin-top: 22px; align-self: center; }
 
+/* Ressalva do simulador: fica fora do card, discreta, e serve para o número
+   não ser lido como promessa fechada. */
+.calc__legal {
+  margin: clamp(18px, 2vw, 24px) auto 0; max-width: 82ch; text-align: center;
+  font-size: .76rem; line-height: 1.65; color: var(--on-dark-3);
+}
+
 @media (max-width: 560px) {
   .calc__cta, .calc__run { align-self: stretch; }
+  /* Centralizado, um texto longo assim vira um bloco de linhas irregulares */
+  .calc__legal { text-align: left; font-size: .74rem; }
 }
 
 /* --------------------------------------------------------------------------
