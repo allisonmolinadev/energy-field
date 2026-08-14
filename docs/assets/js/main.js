@@ -25,7 +25,7 @@ const EF_CONFIG = {
      --------------------------------------------------------------------- */
   ECONOMIA_MAX: 95,   // % máximo comunicado
   ECONOMIA_MIN: 60,   // % mínimo usado na faixa da estimativa
-  ECONOMIA_CALCULADORA: 85,   // % usado na calculadora rápida abaixo do Hero
+  ECONOMIA_CALCULADORA: 95,   // % usado na calculadora rápida abaixo do Hero
 
   /* ---------------------------------------------------------------------
      4) Redirecionamento opcional após o envio (ex.: '/obrigado.html').
@@ -502,7 +502,7 @@ const EF_WHATSAPP_LINK =
   /* ======================================================================
      CALCULADORA DE ECONOMIA (bloco logo abaixo do Hero)
      Fluxo: digita o valor -> clica em "Calcular economia" -> breve
-     processamento -> resultado (conta × SAVINGS_PERCENTAGE%).
+     processamento -> resultado: a economia (conta × SAVINGS_PERCENTAGE%).
      ====================================================================== */
   const CALC_DELAY = 1100;   // ms de processamento simulado, entre 800 e 1500
 

@@ -138,6 +138,10 @@ h1, h2, h3, h4, .h1, .h2, .h3 {
 p { max-width: 66ch; }
 .tiny { font-size: .8rem; line-height: 1.6; color: var(--on-dark-3); }
 .accent-i { font-style: italic; }
+/* Estava em uso em três heros sem nenhuma regra definida: o trecho ficava
+   branco. O 600 é o tom que sustenta contraste quando o fundo é claro. */
+.t-orange { color: var(--sun-500); }
+.section--light .t-orange, .section--white .t-orange, .page-hero--light .t-orange { color: var(--sun-600); }
 
 /* Palavra em destaque, no laranja da marca */
 .mark {
@@ -159,6 +163,8 @@ p { max-width: 66ch; }
   background: var(--paper);
   color: var(--on-light-2);
 }
+/* Branco de verdade, para alternar com o papel em páginas de leitura longa */
+.section--white { background: #fff; }
 .section--light h1, .section--light h2, .section--light h3, .section--light .h1, .section--light .h2, .section--light .h3,
 .section--soft h1, .section--soft h2, .section--soft h3, .section--soft .h1, .section--soft .h2, .section--soft .h3,
 .section--white h2, .section--white h3, .section--white .h1, .section--white .h2, .section--white .h3,
@@ -499,7 +505,7 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
 /* Três estados na mesma área: espera, cálculo e resultado */
 .calc__states {
   display: flex; flex-direction: column; justify-content: center;
-  min-height: clamp(132px, 15vw, 176px);
+  min-height: clamp(140px, 16vw, 194px);
 }
 .calc__out-idle, .calc__out-loading {
   font-size: .98rem; font-weight: 600; line-height: 1.5;
@@ -530,20 +536,25 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
   to   { opacity: 1; transform: none; }
 }
 
-.calc__out-label {
-  font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-  color: rgba(29,25,99,.66); max-width: none; text-align: center;
-}
-
 /* Caixa de destaque: o número ganha uma superfície própria sobre o laranja */
 .calc__box {
-  margin-top: 12px;
   padding: clamp(18px, 2.4vw, 26px) clamp(20px, 3vw, 32px);
   border-radius: var(--r-4);
   background: #fff;
   border: 1px solid rgba(29,25,99,.07);
   box-shadow: 0 22px 44px -24px rgba(29,25,99,.62), 0 2px 6px -2px rgba(29,25,99,.14);
   text-align: center;
+}
+/* Selo verde: o verde é lido como economia antes mesmo de ler a frase, e é
+   o que impede o número de ser confundido com o valor da conta. Fica dentro
+   da caixa branca de propósito — sobre o laranja do painel, brigaria. */
+.calc__badge {
+  display: inline-flex; align-items: center;
+  margin-bottom: 14px; max-width: none;
+  padding: 7px 15px; border-radius: var(--r-pill);
+  background: #1B9E62; color: #fff;
+  font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+  line-height: 1.3;
 }
 .calc__value {
   display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: 2px;
@@ -557,11 +568,6 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
 }
 .calc__base b { color: rgba(29,25,99,.8); }
 .calc__cta { margin-top: 22px; align-self: center; }
-
-.calc__legal {
-  margin: 20px auto 0; max-width: 74ch; text-align: center;
-  font-size: .78rem; line-height: 1.6; color: var(--on-dark-3);
-}
 
 @media (max-width: 560px) {
   .calc__cta, .calc__run { align-self: stretch; }
@@ -1401,6 +1407,9 @@ textarea.control { resize: vertical; min-height: 96px; line-height: 1.6; }
 }
 .split__media { position: relative; }
 .frame { position: relative; overflow: hidden; border-radius: var(--r-4); border: 1px solid var(--edge-1); }
+.section--light .frame, .section--white .frame, .section--soft .frame { border-color: var(--paper-line); }
+/* Trechos em negrito dentro do corpo de texto ganham o tom cheio */
+.section--light p b, .section--white p b, .section--soft p b { color: var(--on-light); }
 .frame img { width: 100%; aspect-ratio: 4/3.4; object-fit: cover; }
 .frame--tall img { aspect-ratio: 4/5; }
 .frame__badge {
@@ -1425,7 +1434,9 @@ textarea.control { resize: vertical; min-height: 96px; line-height: 1.6; }
 .mvv { display: grid; gap: clamp(14px, 1.6vw, 18px); }
 @media (min-width: 860px) { .mvv { grid-template-columns: repeat(3, 1fr); } }
 .mvv__item { padding: clamp(26px, 2.8vw, 34px); border-radius: var(--r-4); background: var(--surf-1); border: 1px solid var(--edge-1); }
-.mvv__item i { display: none; }
+/* Os ícones existem no HTML e estavam ocultos; numa página institucional
+   clara eles dão apoio à leitura sem pesar. Tom 600 pelo contraste no claro. */
+.mvv__item i { display: block; margin-bottom: 18px; color: var(--sun-600); line-height: 0; }
 .mvv__item h3 { margin-bottom: 12px; }
 .mvv__item p { font-size: .96rem; color: var(--on-dark-3); }
 .section--light .mvv__item, .section--soft .mvv__item { background: #fff; border-color: var(--paper-line); }
@@ -1439,17 +1450,27 @@ textarea.control { resize: vertical; min-height: 96px; line-height: 1.6; }
 }
 .section--light .values span, .section--soft .values span { border-color: var(--paper-line); color: var(--on-light-2); }
 
-/* Cards de diferencial, versão enxuta do tile */
+/* Cards de diferencial: foto no topo, texto embaixo */
 .card {
-  padding: clamp(24px, 2.6vw, 30px);
   border-radius: var(--r-4);
   background: var(--surf-1); border: 1px solid var(--edge-1);
   height: 100%;
+  overflow: hidden;   /* recorta a foto no raio do card */
+  display: flex; flex-direction: column;
   transition: border-color .3s ease, background-color .3s ease, transform .3s cubic-bezier(.2,.7,.3,1);
 }
 .card:hover { border-color: var(--edge-2); background: var(--surf-2); transform: translateY(-3px); }
-.card__icon { width: 26px; height: 26px; color: var(--sun-500); margin-bottom: 20px; display: block; }
+.card__media { position: relative; aspect-ratio: 16/10; overflow: hidden; flex: none; }
+.card__media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .7s cubic-bezier(.2,.7,.3,1);
+}
+.card:hover .card__media img { transform: scale(1.05); }
+.card__body { padding: clamp(20px, 2.2vw, 26px); }
+.card__icon { width: 26px; height: 26px; color: var(--sun-500); margin-bottom: 16px; display: block; }
 .card__icon svg { width: 26px; height: 26px; }
+/* Sobre o card branco o 500 perde contraste; o 600 segura */
+.section--light .card__icon, .section--white .card__icon, .section--soft .card__icon { color: var(--sun-600); }
 .card h3 { margin-bottom: 9px; }
 .card p { font-size: .95rem; color: var(--on-dark-3); max-width: 40ch; }
 .section--light .card, .section--soft .card { background: #fff; border-color: var(--paper-line); }
@@ -1681,6 +1702,24 @@ textarea.control { resize: vertical; min-height: 96px; line-height: 1.6; }
 }
 .page-hero h1 { max-width: 18ch; }
 .page-hero p { margin-top: 22px; max-width: 54ch; }
+
+/* Variante clara do hero interno, para páginas institucionais de leitura */
+.page-hero--light { background: #fff; color: var(--on-light-2); }
+.page-hero--light::after {
+  background: repeating-linear-gradient(0deg, rgba(28,23,69,.05) 0 1px, transparent 1px 72px),
+              repeating-linear-gradient(90deg, rgba(28,23,69,.05) 0 1px, transparent 1px 72px);
+}
+.page-hero--light h1, .page-hero--light .h1 { color: var(--on-light); }
+.page-hero--light .lead { color: var(--on-light-2); }
+.page-hero--light .crumbs { color: var(--on-light-3); }
+.page-hero--light .crumbs a:hover { color: var(--on-light); }
+.page-hero--light .crumbs span { color: rgba(28,23,69,.26); }
+/* O ghost nasce como vidro sobre escuro: no claro precisa virar contorno */
+.page-hero--light .btn--ghost-light {
+  background: transparent; color: var(--on-light); border-color: var(--paper-line);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.page-hero--light .btn--ghost-light:hover { background: var(--paper); border-color: var(--on-light-3); }
 .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: .84rem; color: var(--on-dark-3); margin-bottom: 28px; }
 .crumbs a:hover { color: var(--on-dark); }
 .crumbs span { color: rgba(255,255,255,.24); }
